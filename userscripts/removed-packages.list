@@ -1,0 +1,3 @@
+# LineageOS packages left out of the ROM, one module name per line.
+# userscripts/before.sh removes them from vendor/lineage/config/*.mk.
+Twelve

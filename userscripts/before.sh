@@ -29,3 +29,26 @@ android_app_import {
 }
 EOF
 done < "$src/apps.list"
+
+# Leave out unwanted LineageOS packages (userscripts/removed-packages.list).
+python3 - "$src/removed-packages.list" vendor/lineage/config/*.mk <<'PY'
+import re, sys
+names = {l.strip() for l in open(sys.argv[1]) if l.strip() and not l.startswith('#')}
+found = set()
+for path in sys.argv[2:]:
+    lines = open(path).read().split('\n')
+    out = []
+    for line in lines:
+        m = re.fullmatch(r'\s*(\S+)\s*(\\?)', line)
+        if m and m.group(1) in names:
+            found.add(m.group(1))
+            if not m.group(2) and out and out[-1].rstrip().endswith('\\'):
+                out[-1] = out[-1].rstrip()[:-1].rstrip()
+            continue
+        out.append(line)
+    open(path, 'w').write('\n'.join(out))
+missing = names - found
+if missing:
+    # Already removed by an earlier run on an unreset tree, or a typo in the list.
+    print(f'Warning: not found in vendor/lineage/config: {sorted(missing)}')
+PY

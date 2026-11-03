@@ -11,6 +11,10 @@ All preinstalled apps come from the official F-Droid repository and are listed w
 | Infomaniak Mail | Mail (planned); F-Droid edition without Google push libraries, chosen deliberately over instant push |
 | kDrive | Infomaniak cloud files (planned) |
 
+## Removed LineageOS apps
+
+`userscripts/removed-packages.list` names LineageOS apps that are left out of the ROM. Currently: Twelve (music player); audio files then open in any player installed later.
+
 ## Enabling an app
 
 1. Remove the `#` in front of its line in `userscripts/apps.list`, or add a line `Module package - -`.
