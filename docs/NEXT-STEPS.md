@@ -1,6 +1,12 @@
 # Next steps on the build machine
 
-Handoff of 2026-11-03 for continuing on the Linux development PC (for example with Claude Code). Work through the steps in order; stop and report at any step that fails or looks unexpected.
+Handoff of 2026-11-03 for continuing on the Linux development PC. This is context and a suggested path, not a fixed procedure: where you find a better way, take it, and record what you changed.
+
+Three facts matter whatever the path:
+
+- **Signing keys:** the installed phone only accepts builds signed with the keys from the 2026-10-14 build (in that build's `BUILD_ROOT/keys/`).
+- **Repository name before publishing:** builds embed the update address `raw.githubusercontent.com/YZUe1980/tangelo-os/...`, and the Updater does not follow redirects, so the repository should be named `tangelo-os` before a build is offered through it.
+- **Firmware:** if the GitLab vendor tree moved to newer Nothing OS firmware, the phone's firmware has to match before flashing.
 
 ## 1. Rename the GitHub repository to `tangelo-os`
 
