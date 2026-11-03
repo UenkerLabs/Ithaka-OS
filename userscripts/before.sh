@@ -97,5 +97,33 @@ if new not in text:
     p.write_text(text.replace(old, new))
 PY
 
+# Glyph sepolicy fix. Since NullDebris moved the Glyph policy into
+# hardware/nothing (2026-10-18), glyph_app is a coredomain, and Android forbids
+# coredomains to touch sysfs_leds files (system/sepolicy/private/coredomain.te),
+# so precompiled_sepolicy fails. Label the five Glyph LED nodes with the
+# device-specific vendor_sysfs_leds type (declared, but unused, in
+# hardware/nothing) and allow glyph_app exactly that. begin.sh undoes this.
+python3 - device/nothing/asteroids/sepolicy/vendor/genfs_contexts \
+    hardware/nothing/sepolicy/glyph/vendor/glyph_app.te <<'PY'
+import re, sys
+from pathlib import Path
+genfs, te = map(Path, sys.argv[1:])
+text = genfs.read_text()
+pattern = re.compile(r'^(genfscon sysfs \S*/leds/aw20036_led/\S+\s+u:object_r:)sysfs_leds(:s0)$', re.M)
+text, n = pattern.subn(r'\1vendor_sysfs_leds\2', text)
+if n == 0 and 'aw20036_led' not in text:
+    sys.exit('Glyph fix: aw20036_led nodes not found in genfs_contexts')
+genfs.write_text(text)
+policy = te.read_text()
+old = 'allow glyph_app sysfs_leds:file rw_file_perms;'
+new = ('allow glyph_app vendor_sysfs_leds:file rw_file_perms;\n'
+       'allow glyph_app sysfs_leds:lnk_file read;')
+if new not in policy:
+    if policy.count(old) != 1:
+        sys.exit('Glyph fix: expected rule not found in glyph_app.te')
+    te.write_text(policy.replace(old, new))
+print(f'Glyph fix: relabelled {n} LED nodes')
+PY
+
 # Tangelo OS boot animation in place of the LineageOS one.
 cp "$src/bootanimation/bootanimation.tar" "$src/bootanimation/desc.txt" vendor/lineage/bootanimation/
