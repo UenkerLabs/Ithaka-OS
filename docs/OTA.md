@@ -28,7 +28,7 @@ To withdraw a build, remove its entry and push. The Updater deletes partial down
 `lineage.updater.uri` overrides the built-in address until the next reboot, so the list can be tested on the 2026-10-14 build with Magisk root:
 
 ```bash
-adb shell su -c 'setprop lineage.updater.uri https://raw.githubusercontent.com/YZUe1980/leman-os/main/ota/v2/devices/{device}/builds'
+adb shell su -c 'setprop lineage.updater.uri https://raw.githubusercontent.com/YZUe1980/tangelo-os/main/ota/v2/devices/{device}/builds'
 ```
 
 An OTA replaces the patched `init_boot`, so Magisk root is lost after the update unless Magisk's "Install to inactive slot" is used before rebooting.

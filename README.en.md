@@ -1,18 +1,20 @@
-<p align="center"><img src="docs/banner.svg" alt="Leman OS for the Nothing Phone (3a) Pro. Built in the open." /></p>
+<p align="center"><img src="docs/banner.svg" alt="Tangelo OS for the Nothing Phone (3a) Pro. Built in the open." /></p>
 
-# Leman OS
+# Tangelo OS
 
-[![Project validation](https://github.com/YZUe1980/leman-os/actions/workflows/validate.yml/badge.svg)](https://github.com/YZUe1980/leman-os/actions/workflows/validate.yml)
+[![Project validation](https://github.com/YZUe1980/tangelo-os/actions/workflows/validate.yml/badge.svg)](https://github.com/YZUe1980/tangelo-os/actions/workflows/validate.yml)
 
 **Your phone. Your apps. Your choice.**
 
 [Deutsch](README.md) · [Build guide](docs/BUILD.md) · [Device status](docs/STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Contribute](CONTRIBUTING.md)
 
-**Leman OS** is an unofficial Android 16 system for the **Nothing Phone (3a) Pro**. It is based on **LineageOS 23.2** and ships **microG**, **F-Droid** and **Aurora Store** without preinstalled Google services. Next, it is being shaped around **Infomaniak** as the central service for mail, contacts, calendars, files and backup. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
+**Tangelo OS** is an unofficial Android 16 system for the **Nothing Phone (3a) Pro**. It is based on **LineageOS 23.2** and ships **microG**, **F-Droid** and **Aurora Store** without preinstalled Google services. Next, it is being shaped around **Infomaniak** as the central service for mail, contacts, calendars, files and backup. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
 
 **Development preview:** the system runs on our A059P with Android 16 and kernel 6.6. Encryption, SELinux Enforcing, Magisk root, calls with VoLTE, connectivity, cameras, microG and the app stores are verified; only Glyph is still faulty. No public release is available yet.
 
-## What Leman OS is
+*The name:* a tangelo is a cross between a grapefruit and a mandarin. Tangelo OS is a cross as well: LineageOS, microG and Infomaniak, combined into something of its own.
+
+## What Tangelo OS is
 
 | Component | State |
 | --- | --- |
@@ -27,7 +29,7 @@
 
 ## “Without Google”, with a clear meaning
 
-Leman OS has no preinstalled proprietary Google Play Services or Google apps. That does **not** mean every possible Google connection disappears: Aurora Store accesses Google Play, and optional microG features can connect to Google. Network defaults and remaining dependencies are part of the work we document.
+Tangelo OS has no preinstalled proprietary Google Play Services or Google apps. That does **not** mean every possible Google connection disappears: Aurora Store accesses Google Play, and optional microG features can connect to Google. Network defaults and remaining dependencies are part of the work we document.
 
 The build also needs proprietary hardware support files. **This repository is open source; the entire firmware stack is not.** It contains build configuration and links to upstream sources, rather than firmware archives, APKs or private signing keys.
 
@@ -38,8 +40,8 @@ Build, installation, the kernel 6.1 → 6.6 transition, boot and optional root h
 ## Build it
 
 ```bash
-git clone https://github.com/YZUe1980/leman-os.git
-cd leman-os
+git clone https://github.com/YZUe1980/tangelo-os.git
+cd tangelo-os
 ./scripts/build.sh --dry-run
 ./scripts/build.sh
 ```
@@ -52,8 +54,8 @@ Useful contributions include reviewing device changes, documenting reproducible 
 
 ## Credits and licensing
 
-Leman OS builds on [LineageOS](https://github.com/LineageOS), [NullDebris's device and kernel work](https://github.com/NullDebris), [LineageOS for microG's build tooling](https://github.com/lineageos4microg/docker-lineage-cicd), [microG](https://microg.org/), [F-Droid](https://f-droid.org/) and [Aurora Store](https://gitlab.com/AuroraOSS/AuroraStore). The original device-tree contributors retain their credits in the upstream sources.
+Tangelo OS builds on [LineageOS](https://github.com/LineageOS), [NullDebris's device and kernel work](https://github.com/NullDebris), [LineageOS for microG's build tooling](https://github.com/lineageos4microg/docker-lineage-cicd), [microG](https://microg.org/), [F-Droid](https://f-droid.org/) and [Aurora Store](https://gitlab.com/AuroraOSS/AuroraStore). The original device-tree contributors retain their credits in the upstream sources.
 
-New scripts and documentation in this repository are licensed under [Apache-2.0](LICENSE). Upstream software and proprietary hardware files retain their own licenses; see [third-party notes](docs/THIRD_PARTY.md). Leman OS is an independent community project, unaffiliated with Nothing, the LineageOS project or Infomaniak.
+New scripts and documentation in this repository are licensed under [Apache-2.0](LICENSE). Upstream software and proprietary hardware files retain their own licenses; see [third-party notes](docs/THIRD_PARTY.md). Tangelo OS is an independent community project, unaffiliated with Nothing, the LineageOS project or Infomaniak.
 
 GitHub Actions validates scripts and manifests on changes. The full Android build currently runs on the development machine. [CI details](docs/CI.md).

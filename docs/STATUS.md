@@ -1,4 +1,4 @@
-# Leman OS development status
+# Tangelo OS development status
 
 Initial status: **2026-10-14**; last updated **2026-11-03**. This page is updated at meaningful milestones, not for every build percentage.
 
@@ -10,7 +10,7 @@ Initial status: **2026-10-14**; last updated **2026-11-03**. This page is update
 | Original-firmware preparation | All 38 extracted original images passed their published SHA-256 checks locally |
 | First ROM compilation | Completed successfully: 170,777 build steps, container exit 0; output checksums verified |
 | Wrapper checks | Bash syntax, pinned/tracking dry runs and tracked-file/manifest checks passed; full fresh build not yet tested |
-| GitHub Actions | [First hosted validation passed](https://github.com/YZUe1980/leman-os/actions/runs/38529313542); standard Ubuntu runner |
+| GitHub Actions | [First hosted validation passed](https://github.com/YZUe1980/tangelo-os/actions/runs/38529313542); standard Ubuntu runner |
 | Clean installation | Full super image and eight slot-A boot-chain images written; data/metadata formatted. Booted successfully; setup completed |
 | First boot and encryption | Android 16 / SDK 36 boot completed; file encryption active; SELinux Enforcing |
 | SIM / eSIM | eSIM detected and active (2026-11-03) |

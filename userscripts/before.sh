@@ -53,5 +53,5 @@ if missing:
     print(f'Warning: not found in vendor/lineage/config: {sorted(missing)}')
 PY
 
-# Leman OS boot animation in place of the LineageOS one.
+# Tangelo OS boot animation in place of the LineageOS one.
 cp "$src/bootanimation/bootanimation.tar" "$src/bootanimation/desc.txt" vendor/lineage/bootanimation/

@@ -1,23 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Leman OS for the Nothing Phone (3a) Pro. Built in the open.">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Tangelo OS for the Nothing Phone (3a) Pro. Built in the open.">
   <defs>
     <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#ffffff" opacity=".12"/></pattern>
-    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#15171b"/><stop offset="1" stop-color="#050608"/></linearGradient>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#1a1410"/><stop offset="1" stop-color="#050403"/></linearGradient>
+    <radialGradient id="flesh" cx="88" cy="136" r="58" gradientUnits="userSpaceOnUse"><stop stop-color="#ffd65c"/><stop offset="1" stop-color="#ff961e"/></radialGradient>
   </defs>
   <rect width="1200" height="360" rx="24" fill="url(#bg)"/>
   <rect width="1200" height="360" rx="24" fill="url(#dots)"/>
-  <rect x="56" y="58" width="6" height="28" rx="3" fill="#ff4545"/>
-  <text x="80" y="79" font-family="monospace" font-size="19" letter-spacing="3" fill="#d5d8dd">BUILT IN THE OPEN</text>
-  <text x="56" y="150" font-family="sans-serif" font-size="64" font-weight="700" fill="#fff">Leman OS</text>
-  <text x="58" y="203" font-family="sans-serif" font-size="27" fill="#d5d8dd">Your phone. Your choice. · Nothing Phone (3a) Pro</text>
-  <text x="58" y="254" font-family="monospace" font-size="21" fill="#ff6666">based on LineageOS · microG · F-Droid · Aurora</text>
-  <text x="58" y="306" font-family="monospace" font-size="15" fill="#9098a5">UNOFFICIAL COMMUNITY PROJECT · ASTEROIDS</text>
+  <rect x="56" y="58" width="6" height="28" rx="3" fill="#ff7014"/>
+  <text x="80" y="79" font-family="monospace" font-size="19" letter-spacing="3" fill="#e8ddd0">BUILT IN THE OPEN</text>
+  <text x="56" y="150" font-family="sans-serif" font-size="64" font-weight="700" fill="#fff">Tangelo OS</text>
+  <text x="58" y="203" font-family="sans-serif" font-size="27" fill="#e8ddd0">Your phone. Your choice. · Nothing Phone (3a) Pro</text>
+  <text x="58" y="254" font-family="monospace" font-size="21" fill="#ffb347">based on LineageOS · microG · F-Droid · Aurora</text>
+  <text x="58" y="306" font-family="monospace" font-size="15" fill="#9a8f84">UNOFFICIAL COMMUNITY PROJECT · ASTEROIDS</text>
   <g transform="translate(930 32)">
-    <rect x="0" y="0" width="176" height="296" rx="30" fill="#111419" stroke="#606772" stroke-width="2"/>
-    <rect x="8" y="8" width="160" height="280" rx="24" fill="#090b0e" stroke="#272c35"/>
-    <circle cx="88" cy="23" r="4" fill="#606772"/>
-    <circle cx="88" cy="136" r="49" fill="none" stroke="#fff" stroke-width="9" stroke-dasharray="62 22 62 22 62 78"/>
-    <path d="M88 196v46" stroke="#ff4545" stroke-width="8" stroke-linecap="round"/>
-    <text x="88" y="138" text-anchor="middle" dominant-baseline="middle" font-family="monospace" font-size="23" fill="#fff">3a</text>
-    <text x="88" y="270" text-anchor="middle" font-family="monospace" font-size="11" letter-spacing="2" fill="#9098a5">COMMUNITY BUILD</text>
+    <rect x="0" y="0" width="176" height="296" rx="30" fill="#14110e" stroke="#6a6158" stroke-width="2"/>
+    <rect x="8" y="8" width="160" height="280" rx="24" fill="#0a0806" stroke="#2c2620"/>
+    <circle cx="88" cy="23" r="4" fill="#6a6158"/>
+    <circle cx="88" cy="136" r="66" fill="#ff7014"/>
+    <circle cx="88" cy="136" r="60" fill="#fff4e0"/>
+    <path d="M88.9 126.0L93.1 78.2A58 58 0 0 1 125.3 91.6L94.4 128.3Z" fill="url(#flesh)"/><path d="M95.7 129.6L132.4 98.7A58 58 0 0 1 145.8 130.9L98.0 135.1Z" fill="url(#flesh)"/><path d="M98.0 136.9L145.8 141.1A58 58 0 0 1 132.4 173.3L95.7 142.4Z" fill="url(#flesh)"/><path d="M94.4 143.7L125.3 180.4A58 58 0 0 1 93.1 193.8L88.9 146.0Z" fill="url(#flesh)"/><path d="M87.1 146.0L82.9 193.8A58 58 0 0 1 50.7 180.4L81.6 143.7Z" fill="url(#flesh)"/><path d="M80.3 142.4L43.6 173.3A58 58 0 0 1 30.2 141.1L78.0 136.9Z" fill="url(#flesh)"/><path d="M78.0 135.1L30.2 130.9A58 58 0 0 1 43.6 98.7L80.3 129.6Z" fill="url(#flesh)"/><path d="M81.6 128.3L50.7 91.6A58 58 0 0 1 82.9 78.2L87.1 126.0Z" fill="url(#flesh)"/>
+    <path d="M88 220v26" stroke="#ff7014" stroke-width="8" stroke-linecap="round"/>
+    <text x="88" y="270" text-anchor="middle" font-family="monospace" font-size="11" letter-spacing="2" fill="#9a8f84">COMMUNITY BUILD</text>
   </g>
 </svg>
