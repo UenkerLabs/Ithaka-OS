@@ -71,4 +71,6 @@ Steps for the next development build on the build machine:
 3. `BUILD_ROOT=/path/to/build-data ./scripts/export-manifest.sh` records the exact revisions as `manifests/build-YYYY-MM-DD.xml`; commit it with a new build record.
 4. Before flashing, compare the radio/firmware files in the new target-files with the verified original-firmware baseline. If the vendor tree moved to newer Nothing OS firmware, the device firmware must match it.
 
+To offer the result through the Updater, follow [OTA.md](OTA.md).
+
 Updating an installed device in place (for example `adb sideload` of the signed zip in recovery) has not been validated for this project yet. Back up first.
