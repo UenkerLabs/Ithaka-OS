@@ -57,3 +57,7 @@ The builder writes artifacts under `BUILD_ROOT/zips/asteroids/` and logs under `
 `SIGN_BUILDS=true` uses locally generated keys under `BUILD_ROOT/keys/`. Keep an offline backup: losing these keys prevents signing updates compatible with the same installation. Never commit the keys or upload the build-data directory. This repository's publication check complements its `.gitignore` by inspecting tracked files before publication.
 
 See [INSTALLATION.md](INSTALLATION.md) for the current installation-validation boundary.
+
+## Checking for upstream changes
+
+`scripts/check-upstream.py` compares the newest pinned manifest with the current upstream branch heads, using `git ls-remote` only. Add `--all` to list unchanged projects too. Tag-pinned AOSP projects are skipped; a new AOSP release appears as a change in `LineageOS/android`. The latest result is recorded in [UPSTREAM.md](UPSTREAM.md).
