@@ -35,7 +35,8 @@ version, release_type, device = match.groups()
 with zipfile.ZipFile(args.zip) as z:
     raw = z.read('META-INF/com/android/metadata').decode()
 meta = dict(line.split('=', 1) for line in raw.splitlines() if '=' in line)
-if meta.get('pre-device') != device:
+# The device tree spoofs the stock product name, so pre-device is 'Asteroids'.
+if (meta.get('pre-device') or '').lower() != device:
     sys.exit(f"Zip is for {meta.get('pre-device')}, not {device}")
 
 digest = hashlib.sha256()
