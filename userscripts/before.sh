@@ -53,5 +53,29 @@ if missing:
     print(f'Warning: not found in vendor/lineage/config: {sorted(missing)}')
 PY
 
+# Preconfigure the Tangelo OS app repository in F-Droid, next to microG's
+# repositories. F-Droid reads the XML (older clients) and the JSON (current
+# clients) from /product/etc/org.fdroid.fdroid/. begin.sh undoes this before
+# the next sync.
+python3 - "$src/fdroid-repos.json" vendor/partner_gms/additional_repos.xml <<'PY'
+import json, sys
+from pathlib import Path
+from xml.sax.saxutils import escape
+extra = json.load(open(sys.argv[1]))
+base = Path(sys.argv[2])
+js = base / 'additional_repos.json'
+repos = [r for r in json.loads(js.read_text()) if r['address'] not in {e['address'] for e in extra}]
+js.write_text(json.dumps(repos + extra, indent=2) + '\n')
+xml = base / 'additional_repos.xml'
+text = xml.read_text()
+items = ''.join(
+    f"\n        <item>{escape(r['name'])}</item>\n        <item>{escape(r['address'])}</item>"
+    f"\n        <item>{escape(r['description'])}</item>\n        <item>19</item>"
+    f"\n        <item>{1 if r['enabled'] else 0}</item>\n        <item>ignore</item>"
+    f"\n        <item>{r['certificate']}</item>\n"
+    for r in extra if r['address'] not in text)
+xml.write_text(text.replace('    </string-array>', items + '    </string-array>', 1))
+PY
+
 # Tangelo OS boot animation in place of the LineageOS one.
 cp "$src/bootanimation/bootanimation.tar" "$src/bootanimation/desc.txt" vendor/lineage/bootanimation/
