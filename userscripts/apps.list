@@ -8,7 +8,7 @@
 # Module          Package                       VersionCode  SHA-256
 
 
-# Infomaniak, planned for the build after the 2026-11 source update (docs/APPS.md):
-# kSync           com.infomaniak.sync           -            -
-# InfomaniakMail  com.infomaniak.mail           -            -
-# kDrive          com.infomaniak.drive          -            -
+# Infomaniak (docs/APPS.md):
+kSync             com.infomaniak.sync           404120001    256973e00c5f16a5e4d29964e0c5419c4cdbd411b91e2e0458d038db805bd614
+InfomaniakMail    com.infomaniak.mail           13100002     8bca3f0bc5e533f188077118a18f40624f42370536622616288cc231d7bcbe0c
+kDrive            com.infomaniak.drive          502000002    4f69d3a2570533f4893ed4b16bd6076df64d467664b3452afc34b6be30b1a227

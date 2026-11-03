@@ -6,11 +6,15 @@ All preinstalled apps come from the official F-Droid repository and are listed w
 
 | App | Purpose |
 | --- | --- |
-| kSync | Infomaniak contacts and calendars in the system Contacts and Calendar apps (planned) |
-| Infomaniak Mail | Mail (planned); F-Droid edition without Google push libraries, chosen deliberately over instant push |
-| kDrive | Infomaniak cloud files (planned) |
+| kSync | Infomaniak contacts and calendars in the system Contacts and Calendar apps |
+| Infomaniak Mail | Mail; F-Droid edition without Google push libraries, chosen deliberately over instant push |
+| kDrive | Infomaniak cloud files |
 
 Aurora Store is deliberately not preinstalled (since the build after 2026-11-03): it accesses Google Play, whose terms of service make no allowance for third-party clients. It remains available in the F-Droid repository for users who choose it.
+
+## Tangelo OS Apps repository
+
+Apps that are not in the official F-Droid repository come from the project's own F-Droid repository, [tangelo-apps](https://github.com/YZUe1980/tangelo-apps) (`https://yzue1980.github.io/tangelo-apps/repo`, fingerprint `DDCB5AC1B9046E2F380E7AC086E318B0528C5CFA7D26FA148ACAC399209BE05C`). F-Droid has it enabled from the first start: `userscripts/before.sh` adds `userscripts/fdroid-repos.json` to microG's repository list in `/product/etc/org.fdroid.fdroid/`. First app: SafePlace. Proton Mail and Proton Drive are too large for GitHub Pages and are installed through Aurora Store.
 
 ## Removed LineageOS apps
 
