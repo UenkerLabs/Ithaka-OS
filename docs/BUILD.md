@@ -48,7 +48,7 @@ BUILD_ENV="$PWD/config/build.env" ./scripts/build.sh --dry-run
 
 `WITH_GMS=true` is the builder's variable name. Here, `vendor/partner_gms` is explicitly the **lineageos4microg** repository, whose package list selects microG, FakeStore, F-Droid and its privileged extension. This is not a bundle of proprietary Google Play Services. `INCLUDE_PROPRIETARY=false` prevents automatic TheMuppets manifest inclusion; the device-specific vendor repository is still required and contains proprietary hardware files.
 
-`BUILD_TYPE=userdebug` and `APPLY_PI_PATCH=true` reproduce the initial development configuration. The latter requests an upstream compatibility patch and does not promise Play Integrity, banking or DRM compatibility. `SIGNATURE_SPOOFING=no` is also the recorded setting; microG's actual self-check remains a device-validation item. Change these options deliberately and record the resulting build separately.
+`BUILD_TYPE=user` (since the build after 2026-11-03; the 2026-10-14 build was `userdebug`) gives a hardened system without `adb root`. `APPLY_PI_PATCH=true` reproduces the initial development configuration. The latter requests an upstream compatibility patch and does not promise Play Integrity, banking or DRM compatibility. `SIGNATURE_SPOOFING=no` is also the recorded setting; microG's actual self-check remains a device-validation item. Change these options deliberately and record the resulting build separately.
 
 ## Outputs and signing
 

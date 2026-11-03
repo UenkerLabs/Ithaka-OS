@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: Apache-2.0
-# Runs inside the builder before repo sync: undo the F-Droid repository list
-# changes made by before.sh, so the sync can update vendor/partner_gms cleanly.
+# Runs inside the builder before repo sync: undo the source changes made by
+# before.sh outside vendor/lineage (which the builder resets itself), so the
+# sync can update these projects cleanly.
 set -euo pipefail
-gms=/srv/src/LINEAGE_23_2/vendor/partner_gms
-if [[ -d "$gms/.git" || -f "$gms/.git" ]]; then
-    git -C "$gms" checkout -- additional_repos.xml
-fi
+top=/srv/src/LINEAGE_23_2
+reset() {
+    if [[ -e "$top/$1/.git" ]]; then
+        git -C "$top/$1" checkout -- "$2"
+    fi
+}
+reset vendor/partner_gms additional_repos.xml
+reset packages/apps/SetupWizard src/org/lineageos/setupwizard/LineageSettingsActivity.java

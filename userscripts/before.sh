@@ -77,5 +77,25 @@ items = ''.join(
 xml.write_text(text.replace('    </string-array>', items + '    </string-array>', 1))
 PY
 
+# Tangelo OS overlays (branding, setup wizard texts) in vendor/tangelo.
+rm -rf vendor/tangelo
+cp -r "$src/vendor-tangelo" vendor/tangelo
+printf '\n$(call inherit-product, vendor/tangelo/tangelo.mk)\n' >> vendor/lineage/config/common.mk
+
+# LineageOS statistics: opt-in instead of a pre-ticked box in the setup wizard.
+# begin.sh undoes this before the next sync.
+python3 - packages/apps/SetupWizard/src/org/lineageos/setupwizard/LineageSettingsActivity.java <<'PY'
+import sys
+from pathlib import Path
+p = Path(sys.argv[1])
+old = '!myPageBundle.containsKey(KEY_SEND_METRICS) || myPageBundle'
+new = 'myPageBundle.containsKey(KEY_SEND_METRICS) && myPageBundle'
+text = p.read_text()
+if new not in text:
+    if text.count(old) != 1:
+        sys.exit('SetupWizard: metrics default not found; check the opt-in patch')
+    p.write_text(text.replace(old, new))
+PY
+
 # Tangelo OS boot animation in place of the LineageOS one.
 cp "$src/bootanimation/bootanimation.tar" "$src/bootanimation/desc.txt" vendor/lineage/bootanimation/
