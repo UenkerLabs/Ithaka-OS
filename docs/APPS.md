@@ -7,6 +7,9 @@ All preinstalled apps come from the official F-Droid repository and are listed w
 | App | Purpose |
 | --- | --- |
 | Aurora Store | Google Play catalogue without a Google account |
+| kSync | Infomaniak contacts and calendars in the system Contacts and Calendar apps (planned) |
+| Infomaniak Mail | Mail (planned) |
+| kDrive | Infomaniak cloud files (planned) |
 
 ## Enabling an app
 
@@ -15,3 +18,17 @@ All preinstalled apps come from the official F-Droid repository and are listed w
 3. Commit `userscripts/apps.list`.
 
 A preinstalled system app cannot load compressed native libraries, so the build system rejects such APKs. `pin-apps.py` checks this in advance and stops with a message if an app is unsuitable; that app is then better installed from F-Droid or Aurora after setup.
+
+## Infomaniak integration
+
+The ROM is set up around Infomaniak as the main service:
+
+| Area | How |
+| --- | --- |
+| Contacts, calendars | kSync, Infomaniak's own CardDAV/CalDAV sync app, feeds the system Contacts and Calendar apps |
+| Mail | Infomaniak Mail |
+| Files | kDrive |
+| Device backup | Seedvault (Settings → System → Backup) can write to kDrive over WebDAV: `https://<kDrive-ID>.connect.kdrive.infomaniak.com`. Infomaniak does not offer WebDAV on kSuite Free, kSuite Standard, my kSuite and my kSuite+ |
+| Other Infomaniak apps (kMeet, kChat, SwissTransfer, ...) | Install from Aurora Store after setup |
+
+Accounts are signed in after the first boot; the ROM contains no credentials.
