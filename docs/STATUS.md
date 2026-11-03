@@ -17,11 +17,11 @@ Initial status: **2026-10-14**; last updated **2026-11-03**. This page is update
 | Calls, SMS | Outgoing/incoming calls and SMS work on eSIM (2026-11-03) |
 | Mobile data, VoLTE / IMS | Mobile data works; calls stay on 4G/5G with VoLTE (2026-11-03) |
 | Wi-Fi | Connects and works (2026-11-03) |
-| Bluetooth, GPS | Not yet tested |
+| Bluetooth, GPS | Bluetooth audio and GPS positioning work (2026-11-03) |
 | Cameras, fingerprint, audio, Glyph | Not yet tested |
 | microG self-check / Aurora / F-Droid | Packages installed at expected system paths; self-check, sign-in and downloads not yet tested |
 | Optional Magisk root | Magisk 30.7 installed; `su -c id` returned UID 0. Temporary Shell permission revoked afterward |
-| Network-default adjustments | Connectivity checks configured for GrapheneOS endpoints; NTP configured for pool.ntp.org. Actual connectivity/time sync pending an internet connection |
+| Network-default adjustments | Connectivity checks configured for GrapheneOS endpoints; NTP configured for pool.ntp.org. Connectivity and automatic time confirmed (2026-11-03) |
 | Tested public ROM release | None |
 
 The device trees also cover the Phone (3a), but this project has not validated that model. Compilation success, [upstream changes](UPSTREAM.md), upstream reports and hardware testing are recorded separately.
