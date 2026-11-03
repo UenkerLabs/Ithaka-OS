@@ -8,9 +8,9 @@ Use Linux with Docker, Bash, curl, Git, Python 3 and GNU coreutils. A full Andro
 
 ## Source selection
 
-`SOURCE_MODE=pinned` is the default. It initializes a fresh checkout from `manifests/build-2026-10-14.xml`, which records 1,174 project commit IDs exported from the first build. Its GitHub remote is made explicit and an unused remote was removed; project revisions are unchanged. The wrapper refuses an existing checkout without its matching initialization marker.
+`SOURCE_MODE=pinned` is the default. It initializes a fresh checkout from the newest `manifests/build-*.xml` (set `PINNED_MANIFEST=manifests/build-YYYY-MM-DD.xml` to choose another). The first one, `manifests/build-2026-10-14.xml`, records 1,174 project commit IDs exported from the first build. Its GitHub remote is made explicit and an unused remote was removed; project revisions are unchanged. The wrapper refuses an existing checkout without its matching initialization marker.
 
-`SOURCE_MODE=tracking` uses LineageOS's current `lineage-23.2` manifest plus `manifests/tracking/asteroids.xml`. Device and kernel trees follow NullDebris's `6.6/lineage-23.2` branches. Tracking builds can change when upstream changes.
+`SOURCE_MODE=tracking` uses LineageOS's current `lineage-23.2` manifest plus `manifests/tracking/asteroids.xml`. Device and kernel trees follow NullDebris's `6.6/lineage-23.2` branches. Tracking builds can change when upstream changes. A tracking run removes the pinned-checkout marker, so the same tree is not later mistaken for a pinned checkout.
 
 The container is fixed to:
 
@@ -61,3 +61,14 @@ See [INSTALLATION.md](INSTALLATION.md) for the current installation-validation b
 ## Checking for upstream changes
 
 `scripts/check-upstream.py` compares the newest pinned manifest with the current upstream branch heads, using `git ls-remote` only. Add `--all` to list unchanged projects too. Tag-pinned AOSP projects are skipped; a new AOSP release appears as a change in `LineageOS/android`. The latest result is recorded in [UPSTREAM.md](UPSTREAM.md).
+
+## Updating to current sources
+
+Steps for the next development build on the build machine:
+
+1. `python3 scripts/check-upstream.py` to see what changed, including the GitLab vendor tree.
+2. `SOURCE_MODE=tracking BUILD_ROOT=/path/to/build-data ./scripts/build.sh`. Reusing the existing `BUILD_ROOT` only syncs the changes; keep the same `keys/` directory, otherwise the result cannot update the installed system.
+3. `BUILD_ROOT=/path/to/build-data ./scripts/export-manifest.sh` records the exact revisions as `manifests/build-YYYY-MM-DD.xml`; commit it with a new build record.
+4. Before flashing, compare the radio/firmware files in the new target-files with the verified original-firmware baseline. If the vendor tree moved to newer Nothing OS firmware, the device firmware must match it.
+
+Updating an installed device in place (for example `adb sideload` of the signed zip in recovery) has not been validated for this project yet. Back up first.

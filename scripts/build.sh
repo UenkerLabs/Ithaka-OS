@@ -33,21 +33,30 @@ fi
 
 manifests="$repo_root/manifests/tracking"
 call_init=true
+marker="$root/src/LINEAGE_23_2/.asteroids-pinned-manifest"
 if [[ "$mode" == pinned ]]; then
     manifests="$root/empty-manifests"
     call_init=false
-    marker="$root/src/LINEAGE_23_2/.asteroids-pinned-manifest"
-    snapshot_hash=$(sha256sum "$repo_root/manifests/build-2026-10-14.xml" | cut -d ' ' -f 1)
+    snapshot=${PINNED_MANIFEST:-$(cd "$repo_root" && ls manifests/build-*.xml | sort | tail -n 1)}
+    [[ "$snapshot" =~ ^manifests/build-[0-9]{4}-[0-9]{2}-[0-9]{2}\.xml$ && -f "$repo_root/$snapshot" ]] || {
+        echo 'PINNED_MANIFEST must name a manifests/build-YYYY-MM-DD.xml file' >&2
+        exit 2
+    }
+    snapshot_hash=$(sha256sum "$repo_root/$snapshot" | cut -d ' ' -f 1)
+    "$dry_run" && printf 'Pinned manifest: %s\n' "$snapshot"
     if [[ ! -d "$root/src/LINEAGE_23_2/.repo" ]]; then
         run docker run --rm --entrypoint /bin/bash \
-            --volume "$root/src:/srv/src" --env "SNAPSHOT_SHA256=$snapshot_hash" "$image" -c \
-            'set -e; mkdir -p /srv/src/LINEAGE_23_2; cd /srv/src/LINEAGE_23_2; repo init -u https://github.com/YZUe1980/nothing-phone-3a-pro-lineageos-google-free-aurora.git -b main -m manifests/build-2026-10-14.xml -g default,-darwin --git-lfs; printf "%s\n" "$SNAPSHOT_SHA256" > .asteroids-pinned-manifest'
+            --volume "$root/src:/srv/src" --env "SNAPSHOT_SHA256=$snapshot_hash" --env "SNAPSHOT=$snapshot" "$image" -c \
+            'set -e; mkdir -p /srv/src/LINEAGE_23_2; cd /srv/src/LINEAGE_23_2; repo init -u https://github.com/YZUe1980/nothing-phone-3a-pro-lineageos-google-free-aurora.git -b main -m "$SNAPSHOT" -g default,-darwin --git-lfs; printf "%s\n" "$SNAPSHOT_SHA256" > .asteroids-pinned-manifest'
     elif ! "$dry_run"; then
         [[ -f "$marker" && $(cat "$marker") == "$snapshot_hash" ]] || {
             echo 'Existing sources do not match the recorded pinned checkout. Use a fresh BUILD_ROOT.' >&2
             exit 2
         }
     fi
+else
+    # A tracking sync moves the tree away from any pinned snapshot.
+    run rm -f -- "$marker"
 fi
 
 run docker run --name "$container" \
