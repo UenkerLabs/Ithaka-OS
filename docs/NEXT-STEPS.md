@@ -15,7 +15,7 @@ The repository content already uses the name Tangelo OS and the address `github.
 ```bash
 gh repo rename tangelo-os -R YZUe1980/nothing-phone-3a-pro-lineageos-google-free-aurora --yes
 gh repo edit YZUe1980/tangelo-os \
-  --description "Tangelo OS: unofficial Android 16 ROM for the Nothing Phone (3a) Pro, based on LineageOS 23.2 with microG, F-Droid and Aurora Store; Infomaniak integration in progress. Open build recipes and documented device tests." \
+  --description "Tangelo OS: unofficial Android 16 ROM for the Nothing Phone (3a) Pro, based on LineageOS 23.2 with microG and F-Droid; Infomaniak integration in progress. Open build recipes and documented device tests." \
   --add-topic tangelo-os,infomaniak,fdroid,degoogled
 git remote set-url origin https://github.com/YZUe1980/tangelo-os.git
 git pull

@@ -6,10 +6,11 @@ All preinstalled apps come from the official F-Droid repository and are listed w
 
 | App | Purpose |
 | --- | --- |
-| Aurora Store | Google Play catalogue without a Google account |
 | kSync | Infomaniak contacts and calendars in the system Contacts and Calendar apps (planned) |
 | Infomaniak Mail | Mail (planned); F-Droid edition without Google push libraries, chosen deliberately over instant push |
 | kDrive | Infomaniak cloud files (planned) |
+
+Aurora Store is deliberately not preinstalled (since the build after 2026-11-03): it accesses Google Play, whose terms of service make no allowance for third-party clients. It remains available in the F-Droid repository for users who choose it.
 
 ## Removed LineageOS apps
 
@@ -21,7 +22,7 @@ All preinstalled apps come from the official F-Droid repository and are listed w
 2. Run `scripts/pin-apps.py`. It looks up F-Droid's newest version, verifies the download against the F-Droid index and records version code and SHA-256. `--update` moves all apps to their newest versions.
 3. Commit `userscripts/apps.list`.
 
-A preinstalled system app cannot load compressed native libraries, so the build system rejects such APKs. `pin-apps.py` checks this in advance and stops with a message if an app is unsuitable; that app is then better installed from F-Droid or Aurora after setup.
+A preinstalled system app cannot load compressed native libraries, so the build system rejects such APKs. `pin-apps.py` checks this in advance and stops with a message if an app is unsuitable; that app is then better installed from F-Droid after setup.
 
 ## Infomaniak integration
 
@@ -33,6 +34,6 @@ The ROM is set up around Infomaniak as the main service:
 | Mail | Infomaniak Mail |
 | Files | kDrive |
 | Device backup | Seedvault (Settings → System → Backup) writes directly to kDrive: the kDrive app is a storage provider (`CloudStorageProvider`, enabled by its "Show in Files" setting) that supports creating and writing files, uploaded by kDrive in the background. This works without WebDAV, which my kSuite+ lacks. Still to be confirmed on the device; fallback: a USB drive |
-| Other Infomaniak apps (kMeet, kChat, SwissTransfer, ...) | Install from Aurora Store after setup |
+| Other Infomaniak apps (kMeet, kChat, SwissTransfer, ...) | Install from F-Droid where available; otherwise via Aurora Store, which users can install from F-Droid themselves |
 
 Accounts are signed in after the first boot; the ROM contains no credentials.

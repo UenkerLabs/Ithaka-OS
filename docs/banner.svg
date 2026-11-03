@@ -10,7 +10,7 @@
   <text x="80" y="79" font-family="monospace" font-size="19" letter-spacing="3" fill="#e8ddd0">BUILT IN THE OPEN</text>
   <text x="56" y="150" font-family="sans-serif" font-size="64" font-weight="700" fill="#fff">Tangelo OS</text>
   <text x="58" y="203" font-family="sans-serif" font-size="27" fill="#e8ddd0">Your phone. Your choice. · Nothing Phone (3a) Pro</text>
-  <text x="58" y="254" font-family="monospace" font-size="21" fill="#ffb347">based on LineageOS · microG · F-Droid · Aurora</text>
+  <text x="58" y="254" font-family="monospace" font-size="21" fill="#ffb347">based on LineageOS · microG · F-Droid</text>
   <text x="58" y="306" font-family="monospace" font-size="15" fill="#9a8f84">UNOFFICIAL COMMUNITY PROJECT · ASTEROIDS</text>
   <g transform="translate(930 32)">
     <rect x="0" y="0" width="176" height="296" rx="30" fill="#14110e" stroke="#6a6158" stroke-width="2"/>

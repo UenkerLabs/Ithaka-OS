@@ -82,7 +82,7 @@ with tempfile.TemporaryDirectory() as tmp:
             sys.exit(f'{module}: download does not match the F-Droid index')
         if problem := embeddable(apk):
             sys.exit(f'{module} {new_code} cannot be preinstalled: {problem}. '
-                     'Leave it to F-Droid or Aurora instead.')
+                     'Leave it to F-Droid instead.')
         lines[i] = f'{module:<17} {package:<29} {str(new_code):<12} {sha}'
         name = newest['manifest'].get('versionName', '')
         print(f'{module}: pinned {name} ({new_code})')

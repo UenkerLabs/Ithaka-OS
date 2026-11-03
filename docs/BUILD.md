@@ -35,7 +35,7 @@ SOURCE_MODE=tracking BUILD_ROOT=/path/to/another/build-data ./scripts/build.sh
 
 The default output directory is `build-data/` inside the checkout and is Git-ignored. Choose a fresh dedicated directory; do not point the wrapper at another running build. The default container name is `asteroids-microg-build`. An existing container with that name must be deliberately resumed or removed by its operator before creating another.
 
-Prebuilt apps (Aurora Store 4.8.4 / version code 76 so far) are listed with F-Droid version code and SHA-256 in `userscripts/apps.list`. `prepare-deps.sh` downloads them and refuses any mismatch before they enter the source tree; the APKs are not committed to this repository. Their original signatures are preserved by `android_app_import`. See [APPS.md](APPS.md) for adding apps.
+Prebuilt apps are listed with F-Droid version code and SHA-256 in `userscripts/apps.list`. `prepare-deps.sh` downloads them and refuses any mismatch before they enter the source tree; the APKs are not committed to this repository. Their original signatures are preserved by `android_app_import`. See [APPS.md](APPS.md) for adding apps.
 
 ## Settings
 
