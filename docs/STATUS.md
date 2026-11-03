@@ -20,9 +20,10 @@ Initial status: **2026-10-14**; last updated **2026-11-03**. This page is update
 | Bluetooth, GPS | Bluetooth audio and GPS positioning work (2026-11-03) |
 | Cameras, fingerprint, audio | Work (2026-11-03) |
 | Glyph | Faulty on the 2026-10-14 build; upstream ParanoidGlyph and Glyph sepolicy changes to be verified in the next build |
-| microG self-check / Aurora / F-Droid | Packages installed at expected system paths; self-check, sign-in and downloads not yet tested |
+| microG self-check / Aurora / F-Droid | microG self-check all green; Aurora Store sign-in and app installs work; F-Droid repository update and installs work (2026-11-03) |
 | Optional Magisk root | Magisk 30.7 installed; `su -c id` returned UID 0. Temporary Shell permission revoked afterward |
 | Network-default adjustments | Connectivity checks configured for GrapheneOS endpoints; NTP configured for pool.ntp.org. Connectivity and automatic time confirmed (2026-11-03) |
+| Device validation | All checks pass on the A059P except Glyph (2026-11-03) |
 | Tested public ROM release | None |
 
 The device trees also cover the Phone (3a), but this project has not validated that model. Compilation success, [upstream changes](UPSTREAM.md), upstream reports and hardware testing are recorded separately.
