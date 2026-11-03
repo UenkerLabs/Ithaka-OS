@@ -4,12 +4,17 @@
 # Screenshots in site/assets/screens/ are listed by site/screens.txt
 # ("file|title|caption" per line) and inserted at <!-- SCREENS -->; without
 # screenshots the section is left out.
-# Usage: scripts/publish-site.sh [--dry-run]
+# Usage: scripts/publish-site.sh [--dry-run DIR]   (dry run: build into DIR only)
 set -euo pipefail
 
 repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
-site=$(mktemp -d)
-trap 'rm -rf -- "$site"' EXIT
+if [[ "${1:-}" == --dry-run ]]; then
+    site=${2:?--dry-run needs a directory}
+    rm -rf -- "$site"; mkdir -p -- "$site"
+else
+    site=$(mktemp -d)
+    trap 'rm -rf -- "$site"' EXIT
+fi
 cp -r "$repo_root/site/." "$site/"
 rm -f "$site/screens.txt"
 touch "$site/.nojekyll"

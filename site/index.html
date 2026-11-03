@@ -92,6 +92,21 @@ th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: upp
 footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14.5px; }
 footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
 
+@media (max-width: 640px) {
+  /* Status table as stacked cards */
+  .tablewrap { overflow: visible; }
+  thead { display: none; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  tr { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+  tbody tr:last-child { border-bottom: 0; }
+  td { border: 0; padding: 2px 0; }
+  td:first-child { font-weight: 600; display: flex; justify-content: space-between; gap: 12px; }
+  td:nth-child(2) { margin: -26px 0 4px; text-align: right; }
+  td:nth-child(3) { color: var(--muted); font-size: 14.5px; }
+  /* Full-width buttons */
+  .cta { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; text-align: center; }
+}
 @media (max-width: 760px) {
   nav .links { display: none; }
   .hero { padding-top: 40px; }
