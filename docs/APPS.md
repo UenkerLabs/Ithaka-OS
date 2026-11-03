@@ -28,7 +28,7 @@ The ROM is set up around Infomaniak as the main service:
 | Contacts, calendars | kSync, Infomaniak's own CardDAV/CalDAV sync app, feeds the system Contacts and Calendar apps |
 | Mail | Infomaniak Mail |
 | Files | kDrive |
-| Device backup | Seedvault (Settings → System → Backup). kDrive WebDAV is not available on the my kSuite+ plan used here, so the backup target is a storage app that Seedvault lists (to be tested with kDrive) or a USB drive |
+| Device backup | Seedvault (Settings → System → Backup) writes directly to kDrive: the kDrive app is a storage provider (`CloudStorageProvider`, enabled by its "Show in Files" setting) that supports creating and writing files, uploaded by kDrive in the background. This works without WebDAV, which my kSuite+ lacks. Still to be confirmed on the device; fallback: a USB drive |
 | Other Infomaniak apps (kMeet, kChat, SwissTransfer, ...) | Install from Aurora Store after setup |
 
 Accounts are signed in after the first boot; the ROM contains no credentials.
