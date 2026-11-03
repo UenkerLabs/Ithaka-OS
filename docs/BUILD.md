@@ -4,7 +4,7 @@ This is a documented development recipe. The first ROM build predates this wrapp
 
 ## Prerequisites
 
-Use Linux with Docker, Bash, curl, Git, Python 3 and GNU coreutils. A full Android source checkout needs substantial SSD storage. Our first build uses a 12-thread Ryzen 7600X, 30 GiB RAM, an additional 40 GiB swap file, eight parallel jobs and a 50 GiB compiler cache. It started with about 480 GiB free disk space. These are observed development conditions, not a tested minimum specification. The source-generation phase previously exceeded the available physical RAM.
+Use Linux with Docker, Bash, curl, Git, Python 3 with Pillow (for the boot animation) and GNU coreutils. A full Android source checkout needs substantial SSD storage. Our first build uses a 12-thread Ryzen 7600X, 30 GiB RAM, an additional 40 GiB swap file, eight parallel jobs and a 50 GiB compiler cache. It started with about 480 GiB free disk space. These are observed development conditions, not a tested minimum specification. The source-generation phase previously exceeded the available physical RAM.
 
 ## Source selection
 

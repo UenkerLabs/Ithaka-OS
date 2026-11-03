@@ -30,3 +30,10 @@ while read -r module package code sha; do
     install -m 0644 "$download" "$target"
     printf '%s %s: downloaded and verified.\n' "$module" "$code"
 done < "$repo_root/userscripts/apps.list"
+
+# Leman OS boot animation, generated from scripts/gen-bootanimation.py.
+python3 -c 'import PIL' 2>/dev/null || {
+    echo 'The boot animation needs Pillow: pip install --user pillow (or the python3-pil package)' >&2
+    exit 2
+}
+python3 "$repo_root/scripts/gen-bootanimation.py" "$repo_root/userscripts/bootanimation"

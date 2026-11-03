@@ -52,3 +52,6 @@ if missing:
     # Already removed by an earlier run on an unreset tree, or a typo in the list.
     print(f'Warning: not found in vendor/lineage/config: {sorted(missing)}')
 PY
+
+# Leman OS boot animation in place of the LineageOS one.
+cp "$src/bootanimation/bootanimation.tar" "$src/bootanimation/desc.txt" vendor/lineage/bootanimation/
