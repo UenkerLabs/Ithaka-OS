@@ -1,41 +1,44 @@
-<p align="center"><img src="docs/banner.svg" alt="Nothing Phone (3a) Pro — LineageOS, microG und Aurora Store. Offen entwickelt." /></p>
+<p align="center"><img src="docs/banner.svg" alt="Leman OS für das Nothing Phone (3a) Pro. Offen entwickelt." /></p>
 
-# Nothing Phone (3a) Pro — LineageOS, microG & Aurora
+# Leman OS
 
-[![Projektprüfung](https://github.com/YZUe1980/nothing-phone-3a-pro-lineageos-google-free-aurora/actions/workflows/validate.yml/badge.svg)](https://github.com/YZUe1980/nothing-phone-3a-pro-lineageos-google-free-aurora/actions/workflows/validate.yml)
+[![Projektprüfung](https://github.com/YZUe1980/leman-os/actions/workflows/validate.yml/badge.svg)](https://github.com/YZUe1980/leman-os/actions/workflows/validate.yml)
 
 **Dein Handy. Deine Apps. Deine Entscheidung.**
 
-[English](README.en.md) · [Bauanleitung](docs/BUILD.md) · [Gerätestatus](docs/STATUS.md) · [Mitmachen](CONTRIBUTING.md)
+[English](README.en.md) · [Bauanleitung](docs/BUILD.md) · [Gerätestatus](docs/STATUS.md) · [Fahrplan](docs/ROADMAP.md) · [Mitmachen](CONTRIBUTING.md)
 
-Wir entwickeln eine inoffizielle **LineageOS-23.2-Version für das Nothing Phone (3a) Pro** mit **microG, F-Droid und Aurora Store**. Unsere Build-Konfiguration, Quellenstände und Testergebnisse werden öffentlich, damit andere die Arbeit nachvollziehen und verbessern können.
+**Leman OS** ist ein inoffizielles Android-16-System für das **Nothing Phone (3a) Pro**. Es basiert auf **LineageOS 23.2** und bringt **microG, F-Droid und Aurora Store** mit, ohne vorinstallierte Google-Dienste. Als nächster Schritt wird es auf **Infomaniak** als zentralen Dienst für Mail, Kontakte, Kalender, Dateien und Backup ausgerichtet. Build-Konfiguration, Quellenstände und Testergebnisse sind öffentlich, damit andere die Arbeit nachvollziehen und verbessern können.
 
-**Entwicklungsstand: Die ROM läuft auf unserem A059P: Android 16, Kernel 6.6, Verschlüsselung und Magisk-Root sind geprüft. Telefonie mit VoLTE, Verbindungen, Kameras, microG und die App-Stores sind ebenfalls getestet; offen ist nur Glyph. Eine öffentliche ROM-Veröffentlichung gibt es bisher nicht.**
+**Entwicklungsstand:** Das System läuft auf unserem A059P mit Android 16 und Kernel 6.6. Verschlüsselung, Magisk-Root, Telefonie mit VoLTE, Verbindungen, Kameras, microG und die App-Stores sind geprüft; offen ist nur Glyph. Eine öffentliche Veröffentlichung gibt es bisher nicht.
 
-## Was das Projekt ausmacht
+## Was Leman OS ausmacht
 
-- **Weniger vorinstallierte Google-Software:** microG ersetzt die proprietären Google Play-Dienste.
-- **Apps nach eigener Wahl:** F-Droid und Aurora Store sind in der Build-Konfiguration enthalten.
+- **Ohne Google-Dienste:** microG ersetzt die proprietären Google Play-Dienste.
+- **Apps nach eigener Wahl:** F-Droid und Aurora Store sind eingebaut; alle mitgelieferten Apps sind quelloffen.
+- **Infomaniak-Integration (in Arbeit):** Kontakte und Kalender über kSync direkt in den System-Apps, Infomaniak Mail, kDrive und Backups aufs kDrive. Details in [APPS.md](docs/APPS.md).
+- **Updates über den eingebauten Updater:** künftige Versionen kommen direkt aufs Handy ([OTA.md](docs/OTA.md)).
 - **Nachvollziehbare Entwicklung:** feste Quellenstände, offene Skripte und dokumentierte Tests.
-- **Optionales Root:** Magisk 30.7 wurde nach dem ersten Start installiert und mit einem Root-Aufruf geprüft.
-- **Gemeinsam verbessern:** Fehlerberichte und Beiträge sammeln wir zunächst direkt auf GitHub.
+- **Optionales Root:** Magisk lässt sich nach dem ersten Start installieren.
 
-## Was „Google free“ hier bedeutet
+## Was „ohne Google“ hier bedeutet
 
-Unser Ziel ist ein System ohne vorinstallierte proprietäre Google Play-Dienste und Google-Apps. Aurora Store greift weiterhin auf Google Play zu; optionale Funktionen von microG können ebenfalls Google-Verbindungen herstellen. Verbleibende Netzwerk-Standardwerte und Abhängigkeiten dokumentieren wir ausdrücklich.
+Leman OS enthält keine vorinstallierten proprietären Google Play-Dienste und Google-Apps. Aurora Store greift weiterhin auf Google Play zu; optionale Funktionen von microG können ebenfalls Google-Verbindungen herstellen. Verbleibende Netzwerk-Standardwerte und Abhängigkeiten dokumentieren wir ausdrücklich.
 
 Außerdem benötigt das Gerät proprietäre Treiber- und Firmwarebestandteile. **Das Repository ist Open Source; der gesamte Firmware-Stack ist es nicht.** Hier veröffentlichen wir die Konfiguration und Verweise auf die Quellen. Firmwarearchive, APKs, private Signierschlüssel und persönliche Gerätedaten gehören nicht hinein.
 
 ## So geht es weiter
 
-Bau, Installation und Start auf dem **A059P** sind erfolgreich, einschließlich des Wechsels von Kernel 6.1 auf 6.6. Der [Installationsbericht](docs/INSTALLATION.md) hält den bestätigten Ablauf und seine Besonderheiten fest. Die Gerätetests vom 3. November 2026 waren bis auf Glyph erfolgreich. Als Nächstes folgen ein Build mit aktuellen Quellen und [Updates über den LineageOS-Updater](docs/OTA.md).
+Bau, Installation und Start auf dem **A059P** sind erfolgreich, einschließlich des Wechsels von Kernel 6.1 auf 6.6. Der [Installationsbericht](docs/INSTALLATION.md) hält den bestätigten Ablauf fest, der [Statusbericht](docs/STATUS.md) die Gerätetests vom 3. November 2026. Als Nächstes folgen ein Build mit aktuellen Quellen und Updates über den eingebauten Updater, danach die Infomaniak-Integration. Der [Fahrplan](docs/ROADMAP.md) zeigt die Reihenfolge.
 
-Der [Statusbericht](docs/STATUS.md) zeigt, was erledigt ist und welche Prüfungen noch ausstehen. Mit der [Bauanleitung](docs/BUILD.md) lässt sich der Entwicklungsstand untersuchen; der neue Wrapper ist noch nicht durch einen vollständigen frischen Bau bestätigt.
+Mit der [Bauanleitung](docs/BUILD.md) lässt sich der Entwicklungsstand selbst bauen; der neue Wrapper ist noch nicht durch einen vollständigen frischen Bau bestätigt.
 
 ## Mitmachen
 
 Du kennst dich mit Android-Gerätequellen aus, kannst Fehler sauber nachstellen oder möchtest die Dokumentation verbessern? Beiträge sind willkommen. Bitte lies [CONTRIBUTING.md](CONTRIBUTING.md) und nenne bei Fehlerberichten den genauen Build-Stand.
 
-Die Arbeit basiert auf LineageOS, NullDebris' Geräte- und Kernelquellen, LineageOS for microG, microG, F-Droid, Aurora Store und Magisk. Unsere neuen Skripte und Texte stehen unter [Apache-2.0](LICENSE); fremde Komponenten behalten ihre jeweiligen Lizenzen. Dieses unabhängige Community-Projekt ist kein offizielles Angebot von Nothing oder LineageOS.
+## Grundlagen und Lizenzen
+
+Leman OS basiert auf LineageOS, NullDebris' Geräte- und Kernelquellen, LineageOS for microG, microG, F-Droid und Aurora Store. Unsere neuen Skripte und Texte stehen unter [Apache-2.0](LICENSE); fremde Komponenten behalten ihre jeweiligen Lizenzen ([Übersicht](docs/THIRD_PARTY.md)). Leman OS ist ein unabhängiges Community-Projekt und kein offizielles Angebot von Nothing, LineageOS oder Infomaniak.
 
 GitHub Actions prüft Skripte und Manifeste bei Änderungen automatisch. Der vollständige Android-Bau läuft derzeit auf dem Entwicklungsrechner. [Details zur CI](docs/CI.md).

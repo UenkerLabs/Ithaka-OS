@@ -1,4 +1,4 @@
-# Building the development version
+# Building Leman OS
 
 This is a documented development recipe. The first ROM build predates this wrapper; a complete fresh build using the wrapper is still unverified. Nothing here flashes a connected phone automatically.
 
