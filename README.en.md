@@ -10,7 +10,7 @@
 
 An open development project for an unofficial **LineageOS 23.2** build for the **Nothing Phone (3a) Pro**, combining **microG**, **F-Droid** and **Aurora Store**. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
 
-**Development preview — the ROM boots on our A059P with Android 16 and kernel 6.6. Encryption, SELinux Enforcing and Magisk root are verified. Broader hardware validation is pending; no public ROM release is available yet.**
+**Development preview — the ROM boots on our A059P with Android 16 and kernel 6.6. Encryption, SELinux Enforcing and Magisk root are verified. Calls with VoLTE, connectivity, cameras, microG and the app stores were also verified on 2026-11-03; only Glyph is still faulty. No public ROM release is available yet.**
 
 ## What we are building
 
