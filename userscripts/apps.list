@@ -8,10 +8,3 @@
 # Module          Package                       VersionCode  SHA-256
 AuroraStore       com.aurora.store              76           fd9c75d90d0f4a7c132b9b4a5a2cf1992a45e03b8d8ff988b7dcfbc0db2c4d11
 
-# Planned for the build after the 2026-11 source update (see docs/APPS.md):
-# OrganicMaps     app.organicmaps               -            -
-# ProtonVPN       ch.protonvpn.android          -            -
-# ProtonPass      proton.android.pass.fdroid    -            -
-# InfomaniakMail  com.infomaniak.mail           -            -
-# DAVx5           at.bitfire.davdroid           -            -
-# kDrive          com.infomaniak.drive          -            -
