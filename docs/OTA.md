@@ -12,7 +12,19 @@ The Updater requests a JSON list over HTTPS and offers every entry that matches 
 | Built-in address | `OTA_URL` in `config/build.env.example`; the builder appends `/v2/devices/{device}/builds` and writes it into an Updater overlay |
 | ROM zip | [SourceForge project files](https://sourceforge.net/projects/asteroids-lineage-microg/files/) (`asteroids/`). A comparable asteroids OTA zip is about 2.6 GB, above GitHub's 2 GiB release-asset limit; Google Drive interposes a virus-scan page for large files |
 
-Builds from 2026-10-14 do not contain this address yet. The first build with `OTA_URL` must be installed by other means; afterwards updates come through the Updater.
+Builds from 2026-10-14 do not contain this address yet. The first build with `OTA_URL` (2026-11-03) must be installed by other means; afterwards updates come through the Updater.
+
+## Installing the 2026-11-03 build over the 2026-10-14 build
+
+Tested on the A059P on 2026-11-03:
+
+1. Copy `lineage-23.2-20261103-UNOFFICIAL-asteroids.zip` to the phone (for example `adb push … /sdcard/Download/`) and check its SHA-256 against the build record.
+2. Settings → System → Updater → ⋮ → "Install local update" (shown in English even on German phones), choose the zip.
+3. After "Update imported", tap the imported update, choose Install, wait for the progress bar, then Reboot.
+
+The update is written to the inactive slot; if it does not boot, the phone falls back to the previous slot. Data is kept. Magisk root is lost, because the update replaces `init_boot`.
+
+**After the first boot, check the SIM.** On the test phone no SIM was detected until the eSIM was switched on again under Settings → Network & internet → eSIM settings → eSIM, and the profile was enabled under SIMs. Whether this recurs on later updates is not known yet.
 
 ## Publishing a build
 
@@ -33,4 +45,4 @@ adb shell su -c 'setprop lineage.updater.uri https://raw.githubusercontent.com/Y
 
 An OTA replaces the patched `init_boot`, so Magisk root is lost after the update unless Magisk's "Install to inactive slot" is used before rebooting.
 
-The override could also deliver the next build to the current installation without fastboot. Neither path has been tested on the A059P yet; keep a backup and a known-good fastboot image set.
+The override could also deliver a build to the 2026-10-14 installation through the Updater; that path has not been tested. Keep a backup and a known-good fastboot image set.

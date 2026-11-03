@@ -46,4 +46,4 @@ Checks on the result:
 - The product partition contains GmsCore, FakeStore, F-Droid with its privileged extension, kSync, Infomaniak Mail and kDrive, and the three Tangelo overlays; no Aurora Store, no Twelve. F-Droid's repository list contains microG's two repositories and Tangelo OS Apps. The boot animation is the Tangelo OS one.
 - All 22 radio/firmware images in the target-files are byte-identical to the verified original firmware baseline, so no firmware update is needed before installing.
 
-Device validation of this build is still to be done; see [STATUS.md](STATUS.md).
+Installed on the A059P on 2026-11-03 as an update over the 2026-10-14 build: boot animation, Glyph, LTE data, VoLTE registration and PTB time work; the eSIM had to be switched on again after the first boot. Details in [STATUS.md](STATUS.md).

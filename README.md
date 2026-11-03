@@ -31,7 +31,7 @@ Außerdem benötigt das Gerät proprietäre Treiber- und Firmwarebestandteile. *
 
 ## So geht es weiter
 
-Bau, Installation und Start auf dem **A059P** sind erfolgreich, einschließlich des Wechsels von Kernel 6.1 auf 6.6. Der [Installationsbericht](docs/INSTALLATION.md) hält den bestätigten Ablauf fest, der [Statusbericht](docs/STATUS.md) die Gerätetests vom 3. November 2026. Als Nächstes folgen ein Build mit aktuellen Quellen und Updates über den eingebauten Updater, danach die Infomaniak-Integration. Der [Fahrplan](docs/ROADMAP.md) zeigt die Reihenfolge.
+Bau, Installation und Start auf dem **A059P** sind erfolgreich, einschließlich des Wechsels von Kernel 6.1 auf 6.6. Der [Installationsbericht](docs/INSTALLATION.md) hält den bestätigten Ablauf fest, der [Statusbericht](docs/STATUS.md) die Gerätetests vom 3. November 2026. Seit dem Bau vom 3. November 2026 (aktuelle Quellen, Tangelo-OS-Apps-Repo, Infomaniak-Apps, gehärteter `user`-Build) kommen Updates über den eingebauten Updater; Glyph funktioniert damit. Der [Fahrplan](docs/ROADMAP.md) zeigt die nächsten Schritte.
 
 Mit der [Bauanleitung](docs/BUILD.md) lässt sich der Entwicklungsstand selbst bauen; der neue Wrapper ist noch nicht durch einen vollständigen frischen Bau bestätigt.
 

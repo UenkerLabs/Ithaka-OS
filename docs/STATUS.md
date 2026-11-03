@@ -19,12 +19,15 @@ Initial status: **2026-10-14**; last updated **2026-11-03**. This page is update
 | Wi-Fi | Connects and works (2026-11-03) |
 | Bluetooth, GPS | Bluetooth audio and GPS positioning work (2026-11-03) |
 | Cameras, fingerprint, audio | Work (2026-11-03) |
-| Glyph | Faulty on the 2026-10-14 build; upstream ParanoidGlyph and Glyph sepolicy changes to be verified in the next build |
+| Glyph | Faulty on the 2026-10-14 build. Works on the 2026-11-03 build: LEDs respond to the brightness preview, no SELinux denials for the Glyph app (2026-11-03) |
 | microG self-check / Aurora / F-Droid | microG self-check all green; Aurora Store sign-in and app installs work; F-Droid repository update and installs work (2026-11-03) |
-| Optional Magisk root | Magisk 30.7 installed; `su -c id` returned UID 0. Temporary Shell permission revoked afterward |
-| Network-default adjustments | Connectivity checks configured for GrapheneOS endpoints; NTP configured for pool.ntp.org. Connectivity and automatic time confirmed (2026-11-03) |
+| Optional Magisk root | Magisk 30.7 root verified on the 2026-10-14 build; removed with the update to the `user` build at the owner's choice (2026-11-03) |
+| Network-default adjustments | On the 2026-10-14 build set by hand (GrapheneOS connectivity check, pool.ntp.org). After the update these manual settings were removed, so the build defaults apply: Android's connectivity check, PTB time servers, LineageOS statistics off (2026-11-03) |
 | Device validation | All checks pass on the A059P except Glyph (2026-11-03) |
-| Tested public ROM release | None |
+| Update to the 2026-11-03 build | Installed over the 2026-10-14 build with the Updater's local-update import (A/B, now slot B); data kept. Tangelo OS boot animation, `user` build, SELinux Enforcing, Tangelo overlays active, kSync/Infomaniak Mail/kDrive present, Aurora Store and Twelve gone (2026-11-03) |
+| eSIM after the update | No SIM detected after the first boot from slot B: the device's eSIM switch was off and the profile disabled. Turning on Settings → Network & internet → eSIM settings → eSIM and then enabling the profile under SIMs restored service (2026-11-03) |
+| Network on the 2026-11-03 build | In service on LTE, mobile data works, IMS/VoLTE registered over LTE; network time synced from `ptbtime1.ptb.de`. A real call and SMS were not placed during this check (2026-11-03) |
+| Tested public ROM release | None yet; the 2026-11-03 build is offered as a development build through the Updater |
 
 The device trees also cover the Phone (3a), but this project has not validated that model. Compilation success, [upstream changes](UPSTREAM.md), upstream reports and hardware testing are recorded separately.
 
