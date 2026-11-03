@@ -3,4 +3,5 @@
 # by userscripts/before.sh.
 PRODUCT_PACKAGES += \
     TangeloUpdaterOverlay \
-    TangeloSetupWizardOverlay
+    TangeloSetupWizardOverlay \
+    TangeloFrameworkOverlay

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <!-- Public NTP service of the Physikalisch-Technische Bundesanstalt
+         (Germany's national metrology institute) instead of time.android.com.
+         PTB recommends configuring several of its servers. -->
+    <string-array name="config_ntpServers" translatable="false">
+        <item>ntp://ptbtime1.ptb.de</item>
+        <item>ntp://ptbtime2.ptb.de</item>
+        <item>ntp://ptbtime3.ptb.de</item>
+    </string-array>
+</resources>

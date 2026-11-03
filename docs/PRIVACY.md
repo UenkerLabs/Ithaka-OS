@@ -9,26 +9,17 @@ What Tangelo OS changes compared with LineageOS, and which default connections r
 | LineageOS statistics | Pre-ticked box in the setup wizard; when left on, a device hash, model, version, country and carrier go to `stats.lineageos.org` | Opt-in: the box starts unticked and its text names the LineageOS project and the data sent (`userscripts/before.sh`, `vendor-tangelo` overlay) | Build after 2026-11-03 |
 | Build type | `userdebug` | `user`: no `adb root`, no debuggable system | Build after 2026-11-03 |
 | Aurora Store | — | Not preinstalled; installable from F-Droid | Build after 2026-11-03 |
+| Time (NTP) | `time.android.com` (Google) | `ptbtime1`–`ptbtime3.ptb.de`, the public NTP service of Germany's national metrology institute PTB (`TangeloFrameworkOverlay`) | Build after 2026-11-03 |
 
 The setting can be changed at any time under LineageOS statistics in the Trust settings (Settings → Security & privacy → Trust). Installations from builds up to 2026-10-14 keep whatever was chosen during setup; check it there.
 
-## Pending: own endpoints
+## Connectivity check: Android default kept
 
-Both need an account in the project owner's name; until then the Android defaults stay.
+Android checks every network with an HTTP and an HTTPS request to Google (`connectivitycheck.gstatic.com`, `www.google.com`); Google learns that the device is online, nothing else. Tangelo OS keeps this default (decision of 2026-11-03):
 
-### Connectivity check (captive portal)
-
-Android checks every network with an HTTP and an HTTPS request to Google (`connectivitycheck.gstatic.com`, `www.google.com`). GrapheneOS runs its own endpoints, but there is no statement that other systems may use them, so Tangelo OS does not ship them.
-
-Plan: a minimal own endpoint that answers `/generate_204` with HTTP 204 and no body, for example a free Cloudflare Worker (`infra/connectivity-check/worker.js`). Requirements before it goes into a build:
-
-1. The **HTTP** URL must answer 204 itself and must not redirect to HTTPS; Android detects captive portals through the plain HTTP request. With a Workers custom domain this means turning off "Always Use HTTPS" for that hostname. Verify with `curl -si http://HOST/generate_204` (expect `HTTP/1.1 204` and no `Location` header).
-2. The HTTPS URL answers 204 too.
-3. Then set `config_captive_portal_http_url`, `config_captive_portal_https_url` and `config_captive_portal_fallback_urls` in a `runtime_resource_overlay` for `com.android.networkstack` in `userscripts/vendor-tangelo/`.
-
-### Time (NTP)
-
-Android asks `time.android.com`. The NTP Pool asks operating systems and devices not to hard-code `pool.ntp.org` but to request a free vendor zone (for example `tangelo.pool.ntp.org`): https://www.ntppool.org/vendors.html. After approval, set `config_ntpServers` to `ntp://<zone>` in a `runtime_resource_overlay` for `android`.
+- GrapheneOS runs its own endpoints, but there is no statement that other systems may use them.
+- Turning the check off would also turn off captive-portal sign-in pages (hotel, train Wi-Fi) and the switch to mobile data when Wi-Fi has no internet.
+- An own endpoint needs a hosting account. Should one exist later: `infra/connectivity-check/worker.js` answers `/generate_204` with HTTP 204. The **HTTP** URL must answer 204 itself, without redirecting to HTTPS, because captive portals are detected through the plain HTTP request (`curl -si http://HOST/generate_204`: `HTTP/1.1 204`, no `Location` header). Then set `config_captive_portal_http_url`, `config_captive_portal_https_url` and `config_captive_portal_fallback_urls` in a `runtime_resource_overlay` for `com.android.networkstack`.
 
 ## Not changed yet
 
