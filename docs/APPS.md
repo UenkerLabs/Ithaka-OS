@@ -8,7 +8,7 @@ All preinstalled apps come from the official F-Droid repository and are listed w
 | --- | --- |
 | Aurora Store | Google Play catalogue without a Google account |
 | kSync | Infomaniak contacts and calendars in the system Contacts and Calendar apps (planned) |
-| Infomaniak Mail | Mail (planned) |
+| Infomaniak Mail | Mail (planned); F-Droid edition without Google push libraries, chosen deliberately over instant push |
 | kDrive | Infomaniak cloud files (planned) |
 
 ## Enabling an app
