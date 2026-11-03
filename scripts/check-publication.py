@@ -17,6 +17,10 @@ for name in filter(None, paths):
         errors.append(f'Private, binary or generated file: {name}')
         continue
     data = p.read_bytes()
+    # Website images (boot animation, icons, reviewed screenshots) are the
+    # only binary files allowed, and only below site/assets/.
+    if name.startswith('site/assets/') and p.suffix in {'.png', '.webp'}:
+        continue
     if b'\x00' in data:
         errors.append(f'Binary file: {name}')
         continue
