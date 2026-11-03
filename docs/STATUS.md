@@ -14,7 +14,8 @@ Initial status: **2026-10-14**; last updated **2026-11-03**. This page is update
 | Clean installation | Full super image and eight slot-A boot-chain images written; data/metadata formatted. Booted successfully; setup completed |
 | First boot and encryption | Android 16 / SDK 36 boot completed; file encryption active; SELinux Enforcing |
 | SIM / eSIM | eSIM detected and active (2026-11-03) |
-| Calls, SMS, mobile data / IMS | Testing in progress |
+| Calls, SMS | Outgoing/incoming calls and SMS work on eSIM (2026-11-03) |
+| Mobile data, VoLTE / IMS | Not yet tested |
 | Wi-Fi | Connects and works (2026-11-03) |
 | Bluetooth, GPS | Not yet tested |
 | Cameras, fingerprint, audio, Glyph | Not yet tested |
