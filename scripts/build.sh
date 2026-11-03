@@ -26,9 +26,21 @@ if "$dry_run"; then
     printf 'Source mode: %s\nBuild directory: %s\n' "$mode" "$root"
 else
     command -v docker >/dev/null
+    # soong_build needs more than 30 GiB; the first build was OOM-killed with
+    # 30 GiB RAM and 2 GiB swap and succeeded with an extra 40 GiB swap file.
+    mem_kib=$(awk '/^(MemTotal|SwapTotal):/ {s += $2} END {print s}' /proc/meminfo)
+    if (( mem_kib < 60 * 1024 * 1024 )) && [[ ${ALLOW_LOW_MEMORY:-0} != 1 ]]; then
+        printf 'RAM + swap is %s GiB; the build needs about 60 GiB. Enable more swap or set ALLOW_LOW_MEMORY=1.\n' \
+            $(( mem_kib / 1024 / 1024 )) >&2
+        exit 2
+    fi
     "$repo_root/scripts/prepare-deps.sh"
     mkdir -p "$root"/{src,zips,logs,keys,ccache,tmp,empty-manifests}
-    chmod 0700 "$root/keys"
+    # keys/ belongs to root once the builder has generated keys in it.
+    [[ ! -O "$root/keys" ]] || chmod 0700 "$root/keys"
+    # The builder copies /srv/userscripts and deletes every file that is
+    # writable by group or others (the copies are owned by root).
+    chmod -R go-w "$repo_root/userscripts"
 fi
 
 manifests="$repo_root/manifests/tracking"
@@ -71,5 +83,5 @@ run docker run --name "$container" \
     --volume "$root/ccache:/srv/ccache" \
     --volume "$root/tmp:/srv/tmp" \
     --volume "$manifests:/srv/local_manifests:ro" \
-    --volume "$repo_root/userscripts:/root/userscripts:ro" \
+    --volume "$repo_root/userscripts:/srv/userscripts:ro" \
     "$image"
