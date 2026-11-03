@@ -59,8 +59,11 @@ else
     run rm -f -- "$marker"
 fi
 
+packages=$(awk '!/^#/ && NF {printf "%s%s", sep, $1; sep=" "}' "$repo_root/userscripts/apps.list")
+"$dry_run" && printf 'Prebuilt apps: %s\n' "$packages"
+
 run docker run --name "$container" \
-    --env-file "$env_file" --env "CALL_REPO_INIT=$call_init" \
+    --env-file "$env_file" --env "CALL_REPO_INIT=$call_init" --env "CUSTOM_PACKAGES=$packages" \
     --volume "$root/src:/srv/src" \
     --volume "$root/zips:/srv/zips" \
     --volume "$root/logs:/srv/logs" \
