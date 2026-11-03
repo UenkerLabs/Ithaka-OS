@@ -18,7 +18,8 @@ Initial status: **2026-10-14**; last updated **2026-11-03**. This page is update
 | Mobile data, VoLTE / IMS | Mobile data works; calls stay on 4G/5G with VoLTE (2026-11-03) |
 | Wi-Fi | Connects and works (2026-11-03) |
 | Bluetooth, GPS | Bluetooth audio and GPS positioning work (2026-11-03) |
-| Cameras, fingerprint, audio, Glyph | Not yet tested |
+| Cameras, fingerprint, audio | Work (2026-11-03) |
+| Glyph | Faulty on the 2026-10-14 build; upstream ParanoidGlyph and Glyph sepolicy changes to be verified in the next build |
 | microG self-check / Aurora / F-Droid | Packages installed at expected system paths; self-check, sign-in and downloads not yet tested |
 | Optional Magisk root | Magisk 30.7 installed; `su -c id` returned UID 0. Temporary Shell permission revoked afterward |
 | Network-default adjustments | Connectivity checks configured for GrapheneOS endpoints; NTP configured for pool.ntp.org. Connectivity and automatic time confirmed (2026-11-03) |
