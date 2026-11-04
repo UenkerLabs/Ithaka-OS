@@ -127,3 +127,28 @@ PY
 
 # Tangelo OS boot animation in place of the LineageOS one.
 cp "$src/bootanimation/bootanimation.tar" "$src/bootanimation/desc.txt" vendor/lineage/bootanimation/
+
+# microG signature spoofing on the user build. LineageOS only honours microG's
+# fake signature when the build is debuggable; since Tangelo OS is a user build,
+# remove that one check (as the builder's legacy USER_BUILD_SPOOFING option
+# does). The remaining checks stay: only com.google.android.gms and
+# com.android.vending, only when signed with microG's own key, and only
+# Google's signature can be presented. begin.sh undoes this.
+python3 - frameworks/base/services/core/java/com/android/server/pm/ComputerEngine.java <<'PY'
+import re, sys
+from pathlib import Path
+p = Path(sys.argv[1])
+text = p.read_text()
+pattern = re.compile(r'(public static boolean isMicrogSigned\(AndroidPackage p\) \{\n)'
+                     r'\s*if \(!isDebuggable\(\)\) \{\n\s*return false;\n\s*\}\n\n?')
+text, n = pattern.subn(r'\1', text)
+if n == 0:
+    if 'isMicrogSigned' not in text:
+        sys.exit('microG spoofing: isMicrogSigned not found in ComputerEngine.java')
+    if re.search(r'isMicrogSigned\(AndroidPackage p\) \{\s*if \(!isDebuggable', text):
+        sys.exit('microG spoofing: debuggable check has an unexpected form')
+    print('microG spoofing: user-build check already removed')
+else:
+    p.write_text(text)
+    print('microG spoofing: enabled for the user build')
+PY

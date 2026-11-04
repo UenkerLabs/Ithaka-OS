@@ -14,3 +14,4 @@ reset vendor/partner_gms additional_repos.xml
 reset packages/apps/SetupWizard src/org/lineageos/setupwizard/LineageSettingsActivity.java
 reset device/nothing/asteroids sepolicy/vendor/genfs_contexts
 reset hardware/nothing sepolicy/glyph/vendor/glyph_app.te
+reset frameworks/base services/core/java/com/android/server/pm/ComputerEngine.java
