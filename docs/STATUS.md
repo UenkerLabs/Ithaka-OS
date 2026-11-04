@@ -21,7 +21,7 @@ Initial status: **2026-10-14**; last updated **2026-11-03**. This page is update
 | Cameras, fingerprint, audio | Work (2026-11-03) |
 | Glyph | Faulty on the 2026-10-14 build. Works on the 2026-11-03 build: LEDs respond to the brightness preview, no SELinux denials for the Glyph app (2026-11-03) |
 | microG self-check / Aurora / F-Droid | microG self-check all green; Aurora Store sign-in and app installs work; F-Droid repository update and installs work (2026-11-03) |
-| Optional Magisk root | Magisk 30.7 root verified on the 2026-10-14 build; removed with the update to the `user` build at the owner's choice (2026-11-03) |
+| Root | None since the 2026-11-03 `user` build: no root, no Magisk. (Magisk 30.7 root had been verified on the 2026-10-14 `userdebug` build.) |
 | Network-default adjustments | On the 2026-10-14 build set by hand (GrapheneOS connectivity check, pool.ntp.org). After the update these manual settings were removed, so the build defaults apply: Android's connectivity check, PTB time servers, LineageOS statistics off (2026-11-03) |
 | Device validation | All checks pass on the A059P except Glyph (2026-11-03) |
 | Update to the 2026-11-03 build | Installed over the 2026-10-14 build with the Updater's local-update import (A/B, now slot B); data kept. Tangelo OS boot animation, `user` build, SELinux Enforcing, Tangelo overlays active, kSync/Infomaniak Mail/kDrive present, Aurora Store and Twelve gone (2026-11-03) |

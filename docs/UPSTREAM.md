@@ -20,7 +20,6 @@ The device-tree and `hardware/nothing` changes belong together: update both or n
 | Component | Built | Current |
 | --- | --- | --- |
 | `vendor/partner_gms` | `f264d80` | GmsCore/FakeStore 0.3.17.252432, F-Droid Privileged Extension 0.2.14, signature checks for all downloaded APKs |
-| Magisk | 30.7 | 31.1 (installed separately, not part of the ROM) |
 | Aurora Store | 4.8.4 | Not checked automatically |
 
 ## LineageOS

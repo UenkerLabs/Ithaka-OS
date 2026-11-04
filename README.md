@@ -10,7 +10,7 @@
 
 **Tangelo OS** ist ein inoffizielles Android-16-System für das **Nothing Phone (3a) Pro**. Es basiert auf **LineageOS 23.2** und bringt **microG und F-Droid** mit, ohne vorinstallierte Google-Dienste. **Infomaniak** ist der zentrale Dienst: kSync für Kontakte und Kalender, Infomaniak Mail und kDrive sind vorinstalliert; Backups aufs kDrive werden noch getestet. Build-Konfiguration, Quellenstände und Testergebnisse sind öffentlich, damit andere die Arbeit nachvollziehen und verbessern können.
 
-**Entwicklungsstand:** Das System läuft auf unserem A059P mit Android 16 und Kernel 6.6. Verschlüsselung, Magisk-Root, Telefonie mit VoLTE, Verbindungen, Kameras, microG und die App-Stores sind geprüft; offen ist nur Glyph. Eine öffentliche Veröffentlichung gibt es bisher nicht.
+**Entwicklungsstand:** Das System läuft auf unserem A059P mit Android 16 und Kernel 6.6. Verschlüsselung, SELinux Enforcing, Telefonie mit VoLTE, Verbindungen, Kameras, Glyph und F-Droid sind geprüft. Entwicklungs-Builds gibt es über SourceForge und den eingebauten Updater.
 
 *Der Name:* Eine Tangelo ist eine Kreuzung aus Grapefruit und Mandarine. Tangelo OS ist ebenso eine Kreuzung: LineageOS, microG und Infomaniak, zusammengesetzt zu etwas Eigenem.
 
@@ -21,7 +21,7 @@
 - **Infomaniak-Integration:** Kontakte und Kalender über kSync direkt in den System-Apps, Infomaniak Mail und kDrive vorinstalliert; Backups aufs kDrive werden noch getestet. Details in [APPS.md](docs/APPS.md).
 - **Updates über den eingebauten Updater:** künftige Versionen kommen direkt aufs Handy ([OTA.md](docs/OTA.md)).
 - **Nachvollziehbare Entwicklung:** feste Quellenstände, offene Skripte und dokumentierte Tests.
-- **Optionales Root:** Magisk lässt sich nach dem ersten Start installieren.
+- **Kein Root:** gehärteter `user`-Build ohne Root und ohne Magisk.
 
 ## Was „ohne Google“ hier bedeutet
 

@@ -14,7 +14,6 @@ Apache-2.0 in this repository covers its new build scripts, documentation and or
 | kSync (planned) | [Infomaniak/android-kSync](https://github.com/Infomaniak/android-kSync), GPL-3.0 |
 | Infomaniak Mail (planned) | [Infomaniak/android-kMail](https://github.com/Infomaniak/android-kMail), GPL-3.0; the F-Droid build is the `fdroid` flavor without Firebase Cloud Messaging |
 | kDrive (planned) | [Infomaniak/android-kDrive](https://github.com/Infomaniak/android-kDrive), GPL-3.0; the F-Droid build is the `fdroid` flavor without Firebase Cloud Messaging |
-| Optional Magisk | [topjohnwu/Magisk](https://github.com/topjohnwu/Magisk); retain its upstream license |
 | Original-firmware backup reference | [spike0en/nothing_archive](https://github.com/spike0en/nothing_archive); no firmware is included here |
 
 This initial repository distributes recipes, source references and documentation, not ROM binaries, APKs or firmware backups. Any later binary release needs its corresponding source, notices and component-specific distribution requirements documented alongside that release. Retain authorship and license notices when modifying upstream code.

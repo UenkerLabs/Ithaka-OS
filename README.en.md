@@ -10,7 +10,7 @@
 
 **Tangelo OS** is an unofficial Android 16 system for the **Nothing Phone (3a) Pro**. It is based on **LineageOS 23.2** and ships **microG** and **F-Droid** without preinstalled Google services. **Infomaniak** is the central service: kSync for contacts and calendars, Infomaniak Mail and kDrive are preinstalled; backup to kDrive is still being tested. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
 
-**Development preview:** the system runs on our A059P with Android 16 and kernel 6.6. Encryption, SELinux Enforcing, Magisk root, calls with VoLTE, connectivity, cameras, microG and the app stores are verified; only Glyph is still faulty. No public release is available yet.
+**Development preview:** the system runs on our A059P with Android 16 and kernel 6.6. Encryption, SELinux Enforcing, calls with VoLTE, connectivity, cameras, Glyph and F-Droid are verified. Development builds are available from SourceForge and through the built-in Updater.
 
 *The name:* a tangelo is a cross between a grapefruit and a mandarin. Tangelo OS is a cross as well: LineageOS, microG and Infomaniak, combined into something of its own.
 
@@ -24,7 +24,7 @@
 | Apps | F-Droid built in as the app store; all bundled apps are open source. Aurora Store can be installed from F-Droid by anyone who needs Google Play apps |
 | Infomaniak | kSync for contacts and calendars in the system apps, Infomaniak Mail and kDrive preinstalled; backup to kDrive still being tested ([APPS.md](docs/APPS.md)) |
 | Updates | Through the built-in Updater ([OTA.md](docs/OTA.md)) |
-| Root | Optional Magisk, verified after an unmodified first boot |
+| Root | None: hardened `user` build without root or Magisk |
 | Development | Public manifests, scripts, findings and issue tracking |
 
 ## “Without Google”, with a clear meaning
@@ -35,7 +35,7 @@ The build also needs proprietary hardware support files. **This repository is op
 
 ## Follow the work
 
-Build, installation, the kernel 6.1 → 6.6 transition, boot and optional root have passed on the A059P test phone; see the [installation record](docs/INSTALLATION.md). Since the build of 2026-11-03 (current sources, the Tangelo OS Apps repository, Infomaniak apps, a hardened `user` build), updates arrive through the built-in Updater, and Glyph works; see the [status page](docs/STATUS.md). The [roadmap](docs/ROADMAP.md) lists the next steps.
+Build, installation, the kernel 6.1 → 6.6 transition and boot have passed on the A059P test phone; see the [installation record](docs/INSTALLATION.md). Since the build of 2026-11-03 (current sources, the Tangelo OS Apps repository, Infomaniak apps, a hardened `user` build), updates arrive through the built-in Updater, and Glyph works; see the [status page](docs/STATUS.md). The [roadmap](docs/ROADMAP.md) lists the next steps.
 
 ## Build it
 

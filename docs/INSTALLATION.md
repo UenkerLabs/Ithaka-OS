@@ -9,7 +9,7 @@ The first development build was installed successfully on one Nothing Phone (3a)
 3. Flash this full super image through the **hardware bootloader**, after verifying its unlocked state. Recovery fastbootd could not be used for this build; see below.
 4. Flash matching `boot_a`, `init_boot_a`, `dtbo_a`, `recovery_a`, `vendor_boot_a`, `vbmeta_a`, `vbmeta_system_a` and `vbmeta_vendor_a` images. Select slot A. All eight writes succeeded.
 5. Erase and format userdata and metadata using `fastboot -w` with matching Android formatting tools, then reboot. This erased personal data. An unlocked bootloader was required; relocking was not performed.
-6. Complete setup, enable USB debugging and authorize the computer. Confirm boot completion, slot, kernel, encryption and SELinux before adding root.
+6. Complete setup, enable USB debugging and authorize the computer. Confirm boot completion, slot, kernel, encryption and SELinux.
 
 The kernel 6.1 → 6.6 transition required a complete matching image set. No public binary release or automated flash script is provided here.
 
@@ -19,9 +19,9 @@ The kernel 6.1 → 6.6 transition required a complete matching image set. No pub
 - Recovery fastbootd reported a locked device while the hardware bootloader confirmed it was unlocked. The inherited compatibility patch reads `/proc/cmdline` for lock state; its interaction with bootconfig remains to be fixed and tested. Direct full-super flashing succeeded. Generic `fastboot update` is **not verified** for this build.
 - During setup, Android's trade-in ADB mode exposed a transport but closed ordinary shell services. Completing setup and enabling USB debugging restored normal ADB operation.
 
-## Optional root: verified
+## Root on the 2026-10-14 build (historical)
 
-After the unmodified ROM booted, official Magisk **30.7 (30700)** was installed. Following [Magisk's documentation](https://topjohnwu.github.io/Magisk/install.html), the exact ROM's `init_boot.img` was patched **on the same phone**, preserving verity and encryption, and flashed to the confirmed current partition `init_boot_a`.
+Tangelo OS has no root and no Magisk since the 2026-11-03 `user` build. For the record: on the 2026-10-14 `userdebug` build, after the unmodified ROM booted, official Magisk **30.7 (30700)** was installed. Following [Magisk's documentation](https://topjohnwu.github.io/Magisk/install.html), the exact ROM's `init_boot.img` was patched **on the same phone**, preserving verity and encryption, and flashed to the confirmed current partition `init_boot_a`.
 
 The root daemon ran as root. A temporarily authorized Shell request returned `uid=0(root)` with Magisk's SELinux context. Shell permission was then revoked and a repeat request returned `Permission denied`, as requested by the owner. The test used `/debug_ramdisk/su`; plain `su` was not on the shell PATH. Patched images remain local and are not distributed for other devices. A further reboot completed successfully with Magisk active.
 

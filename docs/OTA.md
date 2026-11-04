@@ -22,7 +22,7 @@ Tested on the A059P on 2026-11-03:
 2. Settings → System → Updater → ⋮ → "Install local update" (shown in English even on German phones), choose the zip.
 3. After "Update imported", tap the imported update, choose Install, wait for the progress bar, then Reboot.
 
-The update is written to the inactive slot; if it does not boot, the phone falls back to the previous slot. Data is kept. Magisk root is lost, because the update replaces `init_boot`.
+The update is written to the inactive slot; if it does not boot, the phone falls back to the previous slot. Data is kept.
 
 **After the first boot, check the SIM.** On the test phone no SIM was detected until the eSIM was switched on again under Settings → Network & internet → eSIM settings → eSIM, and the profile was enabled under SIMs. Whether this recurs on later updates is not known yet.
 
@@ -35,14 +35,6 @@ The update is written to the inactive slot; if it does not boot, the phone falls
 
 To withdraw a build, remove its entry and push. The Updater deletes partial downloads of entries that disappear from the list.
 
-## Testing on a rooted device
+## Overriding the update address
 
-`lineage.updater.uri` overrides the built-in address until the next reboot, so the list can be tested on the 2026-10-14 build with Magisk root:
-
-```bash
-adb shell su -c 'setprop lineage.updater.uri https://raw.githubusercontent.com/YZUe1980/tangelo-os/main/ota/v2/devices/{device}/builds'
-```
-
-An OTA replaces the patched `init_boot`, so Magisk root is lost after the update unless Magisk's "Install to inactive slot" is used before rebooting.
-
-The override could also deliver a build to the 2026-10-14 installation through the Updater; that path has not been tested. Keep a backup and a known-good fastboot image set.
+`lineage.updater.uri` overrides the built-in address until the next reboot. Setting it needs root, which Tangelo OS does not have; it was only possible on the rooted 2026-10-14 build and was not used. Keep a backup and a known-good fastboot image set.
