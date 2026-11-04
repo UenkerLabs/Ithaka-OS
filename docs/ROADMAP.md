@@ -14,6 +14,11 @@ The first plan was to change one area per build. On 2026-11-03 the following wer
 - **Privacy defaults** ([PRIVACY.md](PRIVACY.md)): LineageOS statistics opt-in; time from PTB instead of Google.
 - **Hardened `user` build** instead of `userdebug`.
 
+## Next build: microG fix, no Play Integrity patch
+
+- microG signature spoofing restored on the `user` build (`userscripts/before.sh`); the 2026-11-03 build lost it.
+- Play Integrity patch removed (`APPLY_PI_PATCH=false`): the system no longer claims a locked bootloader. Some banking apps may stop working.
+
 ## Waiting for accounts
 
 - SourceForge upload key and the project display name "Tangelo OS".
