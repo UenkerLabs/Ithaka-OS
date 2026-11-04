@@ -19,6 +19,14 @@ The first plan was to change one area per build. On 2026-11-03 the following wer
 - microG signature spoofing restored on the `user` build (`userscripts/before.sh`); the 2026-11-03 build lost it.
 - Play Integrity patch removed (`APPLY_PI_PATCH=false`): the system no longer claims a locked bootloader. Some banking apps may stop working.
 
+## Investigating: relocking the bootloader
+
+1. Build with verified boot enabled (drop `--flags 3`) and an own AVB key instead of the AOSP test key; install it with the bootloader still unlocked and confirm it boots with dm-verity active.
+2. Find out whether the A059P accepts an own key (`fastboot flash avb_custom_key`; reported for Nothing phones, not confirmed for this model) and keep an unbrick path ready.
+3. Only then lock (`fastboot flashing lock`, which erases all data). Later updates must be signed with the same AVB key.
+
+A locked bootloader with an own key does not pass Google's device integrity check; it protects against tampering, not for app compatibility.
+
 ## Waiting for accounts
 
 - SourceForge upload key and the project display name "Tangelo OS".
