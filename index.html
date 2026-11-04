@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ithaka OS</title>
+<meta name="description" content="Ithaka OS: an unofficial Android 16 system for the Nothing Phone (3a) Pro, based on LineageOS 23.2 with microG and F-Droid. Open build recipes, documented device tests, updates over the air.">
+<link rel="icon" href="assets/favicon.png">
+<style>
+:root {
+  --bg: #0b0d10; --panel: #13161b; --panel2: #191d23; --line: #262b33;
+  --text: #f2f4f7; --muted: #9aa3ae; --sea: #3f8ff0; --amber: #ffc846;
+  --ok: #4cc38a; --warn: #f0b429;
+  --radius: 18px; --max: 1120px;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 var(--sans); }
+a { color: var(--amber); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+.dots { background-image: radial-gradient(#ffffff10 1.2px, transparent 1.3px); background-size: 22px 22px; }
+
+/* Navigation */
+nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); background: #0b0d10cc; border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; gap: 24px; height: 60px; }
+nav .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; letter-spacing: .02em; }
+nav .brand img { width: 28px; height: 28px; border-radius: 7px; }
+nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 15px; }
+nav .links a { color: var(--muted); }
+nav .links a:hover { color: var(--text); text-decoration: none; }
+
+/* Hero */
+.hero { padding: 72px 0 56px; text-align: center; }
+.hero .anim { width: min(810px, 100%); aspect-ratio: 3 / 1; border-radius: var(--radius); background: #000; border: 1px solid var(--line); display: block; margin: 0 auto 40px; object-fit: cover; }
+.eyebrow { font: 600 13px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sea); }
+h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.08; margin: 14px 0 16px; letter-spacing: -.02em; }
+.lead { font-size: clamp(17px, 2.2vw, 21px); color: var(--muted); max-width: 720px; margin: 0 auto 32px; }
+.cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; border: 1px solid var(--line); color: var(--text); background: var(--panel); }
+.btn:hover { text-decoration: none; border-color: #3a414c; }
+.btn.primary { background: var(--sea); border-color: var(--sea); color: #020c1c; }
+.btn.primary:hover { background: #5ea4f6; }
+.meta { margin-top: 18px; font: 14px var(--mono); color: var(--muted); }
+
+section { padding: 72px 0; border-top: 1px solid var(--line); }
+h2 { font-size: clamp(26px, 3.6vw, 36px); margin: 8px 0 12px; letter-spacing: -.01em; }
+.sub { color: var(--muted); max-width: 720px; margin: 0 0 36px; }
+
+/* Features */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+.card h3 { margin: 12px 0 6px; font-size: 18px; }
+.card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.icon { width: 36px; height: 36px; }
+
+/* Screens */
+.screens { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px; }
+.screens figure { margin: 0; text-align: center; }
+.phone { aspect-ratio: 1080 / 2392; border-radius: 28px; padding: 8px; background: #1b1f25; border: 1px solid #2c323b; box-shadow: 0 20px 50px #0008; }
+.phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 21px; display: block; background: #000; }
+.screens figcaption { margin-top: 12px; font-size: 14.5px; color: var(--muted); }
+.screens figcaption b { display: block; color: var(--text); font-size: 15.5px; }
+
+/* Steps */
+.steps { counter-reset: s; display: grid; gap: 14px; padding: 0; margin: 0; list-style: none; max-width: 820px; }
+.steps li { counter-increment: s; position: relative; padding: 18px 20px 18px 64px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+.steps li::before { content: counter(s); position: absolute; left: 18px; top: 16px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: #3f8ff01f; color: var(--sea); font: 700 15px var(--mono); }
+.note { margin-top: 18px; max-width: 820px; padding: 16px 20px; border-radius: 14px; background: #f0b42914; border: 1px solid #f0b42940; color: #f6dca0; font-size: 15.5px; }
+code { font: 14px var(--mono); background: var(--panel2); padding: 2px 6px; border-radius: 6px; }
+
+/* Status */
+table { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+.pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font: 600 12.5px var(--mono); white-space: nowrap; }
+.pill.ok { background: #4cc38a1f; color: var(--ok); }
+.pill.warn { background: #f0b4291f; color: var(--warn); }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+
+/* Download */
+.dl { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; align-items: start; }
+.dl dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; font-size: 15px; }
+.dl dt { color: var(--muted); }
+.dl dd { margin: 0; overflow-wrap: anywhere; }
+.hash { font: 13px var(--mono); color: var(--muted); }
+
+footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14.5px; }
+footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+
+@media (max-width: 640px) {
+  /* Status table as stacked cards */
+  .tablewrap { overflow: visible; }
+  thead { display: none; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  tr { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+  tbody tr:last-child { border-bottom: 0; }
+  td { border: 0; padding: 2px 0; }
+  td:first-child { font-weight: 600; display: flex; justify-content: space-between; gap: 12px; }
+  td:nth-child(2) { margin: -26px 0 4px; text-align: right; }
+  td:nth-child(3) { color: var(--muted); font-size: 14.5px; }
+  /* Full-width buttons */
+  .cta { flex-direction: column; align-items: stretch; }
+  .btn { justify-content: center; text-align: center; }
+}
+@media (max-width: 760px) {
+  nav .links { display: none; }
+  .hero { padding-top: 40px; }
+  .dl { grid-template-columns: 1fr; }
+  section { padding: 56px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#"><img src="assets/icon.png" alt="">Ithaka OS</a>
+  <div class="links">
+    <a href="#features">Features</a><a href="#install">Install</a><a href="#status">Status</a><a href="#download">Download</a>
+    <a href="https://github.com/YZUe1980/ithaka-os">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero dots"><div class="wrap">
+  <img class="anim" src="assets/bootanimation.webp" alt="The Ithaka OS boot animation: the sun rising over an island and the sea, drawn in dots, next to the dot-matrix word ITHAKA">
+  <div class="eyebrow">Android 16 · Nothing Phone (3a) Pro</div>
+  <h1>Your phone, without the strings attached.</h1>
+  <p class="lead">Ithaka OS is an unofficial Android system based on LineageOS 23.2 with microG and F-Droid. No preinstalled Google services, no tracking defaults, no grey zones, and every build recipe in the open.</p>
+  <div class="cta">
+    <a class="btn primary" href="#download">Download build 2026-11-04</a>
+    <a class="btn" href="#install">How to install</a>
+    <a class="btn" href="https://github.com/YZUe1980/ithaka-os">Source on GitHub</a>
+  </div>
+  <div class="meta">Development build · LineageOS 23.2 · security patch 2026-10-01</div>
+</div></header>
+
+<section id="features"><div class="wrap">
+  <div class="eyebrow">What you get</div>
+  <h2>Everything you need. Nothing you didn't ask for.</h2>
+  <p class="sub">A careful set of defaults, decided once and written down, so you don't have to hunt through settings after every install.</p>
+  <div class="grid">
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#3f8ff0" stroke-width="3"/><circle cx="18" cy="18" r="5" fill="#ffc846"/></svg>
+      <h3>microG instead of Google</h3><p>Apps that expect Google services keep working through microG. No Google account needed, nothing preinstalled from Google.</p></div>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><g fill="#3f8ff0"><circle cx="8" cy="8" r="4"/><circle cx="18" cy="8" r="4"/><circle cx="28" cy="8" r="4" fill="#ffc846"/><circle cx="8" cy="18" r="4" fill="#ffc846"/><circle cx="18" cy="18" r="4"/><circle cx="28" cy="18" r="4"/><circle cx="8" cy="28" r="4"/><circle cx="18" cy="28" r="4" fill="#ffc846"/><circle cx="28" cy="28" r="4"/></g></svg>
+      <h3>F-Droid as the app store</h3><p>F-Droid is the one built-in store, together with the project's own signed repository. Aurora Store is one tap away in F-Droid if you need Play apps.</p></div>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><path d="M18 3l13 5v9c0 8-6 14-13 16C11 31 5 25 5 17V8z" fill="none" stroke="#3f8ff0" stroke-width="3"/><path d="M12 18l4 4 8-9" fill="none" stroke="#ffc846" stroke-width="3"/></svg>
+      <h3>Privacy by default</h3><p>LineageOS statistics are opt-in, network time comes from Germany's national metrology institute PTB, and remaining default connections are documented.</p></div>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><rect x="7" y="15" width="22" height="16" rx="3" fill="none" stroke="#3f8ff0" stroke-width="3"/><path d="M12 15v-4a6 6 0 0 1 12 0v4" fill="none" stroke="#ffc846" stroke-width="3"/></svg>
+      <h3>Hardened user build</h3><p>A real <code>user</code> build with SELinux enforcing and no debuggable system, signed with the project's own keys.</p></div>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><path d="M18 5v18m-7-7l7 7 7-7" fill="none" stroke="#3f8ff0" stroke-width="3"/><path d="M6 27v4h24v-4" fill="none" stroke="#ffc846" stroke-width="3"/></svg>
+      <h3>Updates over the air</h3><p>New builds arrive in Settings → System → Updater, streamed and installed in the background on the inactive slot, with automatic fallback.</p></div>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><g fill="#ffc846"><circle cx="10" cy="10" r="3"/><circle cx="26" cy="10" r="3"/><circle cx="10" cy="26" r="3"/><circle cx="26" cy="26" r="3"/></g><circle cx="18" cy="18" r="6" fill="none" stroke="#3f8ff0" stroke-width="3"/></svg>
+      <h3>Glyph lights work</h3><p>The rear Glyph interface works with per-app notification and call animations, thanks to the ParanoidGlyph app and a fixed SELinux policy.</p></div>
+  </div>
+</div></section>
+
+
+<section id="install"><div class="wrap">
+  <div class="eyebrow">Install &amp; update</div>
+  <h2>Updating from an earlier Ithaka OS build</h2>
+  <p class="sub">Phones running the 2026-11-03 build or later get new builds in the Updater automatically (Settings → System → Updater). To move up from the 2026-10-14 build once:</p>
+  <ol class="steps">
+    <li>Download the zip below and copy it to the phone, then check its SHA-256.</li>
+    <li>Open <b>Settings → System → Updater</b>, tap <b>⋮ → Install local update</b> and choose the zip.</li>
+    <li>When it says <i>Update imported</i>, tap the update, choose <b>Install</b> and wait for the progress bar.</li>
+    <li>Tap <b>Reboot</b>. The new system starts from the other slot; if it does not boot, the phone falls back automatically.</li>
+  </ol>
+  <div class="note"><b>Check your SIM after the first boot.</b> On the test phone the eSIM had to be switched on again: Settings → Network &amp; internet → eSIM settings → eSIM, then enable the profile under SIMs.</div>
+  <p class="sub" style="margin-top:28px">A fresh installation needs an unlocked bootloader and fastboot; it erases the phone. The steps are in the <a href="https://github.com/YZUe1980/ithaka-os/blob/main/docs/INSTALLATION.md">installation guide</a>.</p>
+</div></section>
+
+<section id="status"><div class="wrap">
+  <div class="eyebrow">Honest status</div>
+  <h2>Tested on real hardware</h2>
+  <p class="sub">Results from the Nothing Phone (3a) Pro A059P test device. The Phone (3a) shares the device tree but has not been tested by this project.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Area</th><th>State</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Boot, encryption, SELinux</td><td><span class="pill ok">works</span></td><td>File-based encryption active, SELinux enforcing</td></tr>
+      <tr><td>Mobile network, data, VoLTE</td><td><span class="pill ok">works</span></td><td>LTE data and VoLTE registration on eSIM</td></tr>
+      <tr><td>Calls, SMS</td><td><span class="pill ok">works</span></td><td>Tested on the 2026-10-14 build</td></tr>
+      <tr><td>Wi-Fi, Bluetooth, GPS</td><td><span class="pill ok">works</span></td><td>Tested on the 2026-10-14 build</td></tr>
+      <tr><td>Cameras, fingerprint, audio</td><td><span class="pill ok">works</span></td><td>Tested on the 2026-10-14 build</td></tr>
+      <tr><td>Glyph lights</td><td><span class="pill ok">works</span></td><td>Fixed in the 2026-11-03 build</td></tr>
+      <tr><td>eSIM after updating</td><td><span class="pill warn">manual step</span></td><td>Switch the eSIM on again after the first boot</td></tr>
+      <tr><td>Banking and DRM apps</td><td><span class="pill warn">not promised</span></td><td>No Play Integrity workaround: the system reports its real state, so some banking apps refuse to run</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub" style="margin-top:18px">Full record: <a href="https://github.com/YZUe1980/ithaka-os/blob/main/docs/STATUS.md">STATUS.md</a>.</p>
+</div></section>
+
+<section id="download" class="dots"><div class="wrap">
+  <div class="eyebrow">Download</div>
+  <h2>Build 2026-11-04</h2>
+  <div class="dl">
+    <div class="card">
+      <dl>
+        <dt>File</dt><dd>lineage-23.2-20261104-UNOFFICIAL-asteroids.zip</dd>
+        <dt>Size</dt><dd>1.85 GB</dd>
+        <dt>Device</dt><dd>Nothing Phone (3a) Pro (asteroids)</dd>
+        <dt>Base</dt><dd>LineageOS 23.2, Android 16, kernel 6.6</dd>
+        <dt>SHA-256</dt><dd class="hash">b780a2770c17808c8882492157f79dcd1013f6ac2bd0c898027fa604c1972cec</dd>
+      </dl>
+      <div class="cta" style="justify-content:flex-start;margin-top:22px">
+        <a class="btn primary" href="https://sourceforge.net/projects/asteroids-lineage-microg/files/asteroids/lineage-23.2-20261104-UNOFFICIAL-asteroids.zip/download">Download from SourceForge</a>
+        <a class="btn" href="https://github.com/YZUe1980/ithaka-os/blob/main/docs/BUILD-RECORD-2026-11-04.md">Build record</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Before you flash</h3>
+      <p>This is an unofficial development build. Back up your data, keep the original firmware at hand, and read the installation guide first. Installing a custom system is at your own risk.</p>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap cols">
+  <div>Ithaka OS builds on <a href="https://lineageos.org">LineageOS</a>, <a href="https://github.com/NullDebris">NullDebris's device and kernel work</a>, <a href="https://microg.org">microG</a> and <a href="https://f-droid.org">F-Droid</a>.<br>Not affiliated with Nothing Technology or the LineageOS project.</div>
+  <div>Scripts and texts: Apache-2.0 · <a href="https://github.com/YZUe1980/ithaka-os">github.com/YZUe1980/ithaka-os</a></div>
+</div></footer>
+
+</body>
+</html>
