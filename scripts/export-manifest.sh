@@ -13,8 +13,9 @@ out="$repo_root/manifests/build-$date.xml"
 [[ -d "$root/src/LINEAGE_23_2/.repo" ]] || { echo "No source tree in $root/src/LINEAGE_23_2" >&2; exit 2; }
 [[ ! -e "$out" ]] || { echo "$out already exists" >&2; exit 2; }
 
-# The tree is mounted read-only, so repo must not write its trace file.
-docker run --rm --entrypoint /bin/bash --env REPO_TRACE=0 --volume "$root/src:/srv/src:ro" "$image" -c \
+# repo only reads here, but writes its trace file and config cache, so the
+# tree is mounted writable; the trace file is disabled.
+docker run --rm --entrypoint /bin/bash --env REPO_TRACE=0 --volume "$root/src:/srv/src" "$image" -c \
     'cd /srv/src/LINEAGE_23_2 && repo manifest -r -o -' > "$out.tmp"
 # As for the first snapshot: make the LineageOS GitHub remote explicit and drop
 # remotes that no project uses (the builder's checkout carries a "private" one).

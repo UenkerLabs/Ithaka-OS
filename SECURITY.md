@@ -25,5 +25,5 @@ Please report security problems privately through GitHub's "Report a vulnerabili
 ## Known limits
 
 - **Unlocked bootloader.** Anyone with physical access can flash other software. File-based encryption keeps data unreadable without the screen-lock credential, but a modified system could capture it afterwards. Use a PIN or password rather than a pattern. Relocking with a custom AVB key has not been investigated for this device; trying it without that research can make the phone unbootable.
-- **No Play Integrity patch** (since the build after 2026-11-04). Earlier builds made the system report a locked bootloader and green verified boot to apps; Tangelo OS now reports the real state. Apps that insist on Google's device integrity checks, such as some banking apps and Google Wallet, may refuse to run.
+- **No Play Integrity patch** (since the 2026-11-04 build). Earlier builds made the system report a locked bootloader and green verified boot to apps; Tangelo OS now reports the real state. Apps that insist on Google's device integrity checks, such as some banking apps and Google Wallet, may refuse to run.
 - **USB debugging** is off by default; turn it off again after use.
