@@ -8,7 +8,7 @@
 
 [Website](https://yzue1980.github.io/tangelo-os/) · [Deutsch](README.md) · [Build guide](docs/BUILD.md) · [Device status](docs/STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Contribute](CONTRIBUTING.md)
 
-**Tangelo OS** is an unofficial Android 16 system for the **Nothing Phone (3a) Pro**. It is based on **LineageOS 23.2** and ships **microG** and **F-Droid** without preinstalled Google services. Next, it is being shaped around **Infomaniak** as the central service for mail, contacts, calendars, files and backup. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
+**Tangelo OS** is an unofficial Android 16 system for the **Nothing Phone (3a) Pro**. It is based on **LineageOS 23.2** and ships **microG** and **F-Droid** without preinstalled Google services. **Infomaniak** is the central service: kSync for contacts and calendars, Infomaniak Mail and kDrive are preinstalled; backup to kDrive is still being tested. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
 
 **Development preview:** the system runs on our A059P with Android 16 and kernel 6.6. Encryption, SELinux Enforcing, Magisk root, calls with VoLTE, connectivity, cameras, microG and the app stores are verified; only Glyph is still faulty. No public release is available yet.
 
@@ -22,7 +22,7 @@
 | Base | LineageOS 23.2 with the device maintainer's Linux 6.6 trees |
 | Google replacement | microG in place of proprietary Google Play Services |
 | Apps | F-Droid built in as the app store; all bundled apps are open source. Aurora Store can be installed from F-Droid by anyone who needs Google Play apps |
-| Infomaniak (in progress) | kSync for contacts and calendars in the system apps, Infomaniak Mail, kDrive, backup to kDrive ([APPS.md](docs/APPS.md)) |
+| Infomaniak | kSync for contacts and calendars in the system apps, Infomaniak Mail and kDrive preinstalled; backup to kDrive still being tested ([APPS.md](docs/APPS.md)) |
 | Updates | Through the built-in Updater ([OTA.md](docs/OTA.md)) |
 | Root | Optional Magisk, verified after an unmodified first boot |
 | Development | Public manifests, scripts, findings and issue tracking |

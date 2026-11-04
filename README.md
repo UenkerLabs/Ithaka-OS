@@ -8,7 +8,7 @@
 
 [Website](https://yzue1980.github.io/tangelo-os/) · [English](README.en.md) · [Bauanleitung](docs/BUILD.md) · [Gerätestatus](docs/STATUS.md) · [Fahrplan](docs/ROADMAP.md) · [Nächste Schritte](docs/NEXT-STEPS.md) · [Mitmachen](CONTRIBUTING.md)
 
-**Tangelo OS** ist ein inoffizielles Android-16-System für das **Nothing Phone (3a) Pro**. Es basiert auf **LineageOS 23.2** und bringt **microG und F-Droid** mit, ohne vorinstallierte Google-Dienste. Als nächster Schritt wird es auf **Infomaniak** als zentralen Dienst für Mail, Kontakte, Kalender, Dateien und Backup ausgerichtet. Build-Konfiguration, Quellenstände und Testergebnisse sind öffentlich, damit andere die Arbeit nachvollziehen und verbessern können.
+**Tangelo OS** ist ein inoffizielles Android-16-System für das **Nothing Phone (3a) Pro**. Es basiert auf **LineageOS 23.2** und bringt **microG und F-Droid** mit, ohne vorinstallierte Google-Dienste. **Infomaniak** ist der zentrale Dienst: kSync für Kontakte und Kalender, Infomaniak Mail und kDrive sind vorinstalliert; Backups aufs kDrive werden noch getestet. Build-Konfiguration, Quellenstände und Testergebnisse sind öffentlich, damit andere die Arbeit nachvollziehen und verbessern können.
 
 **Entwicklungsstand:** Das System läuft auf unserem A059P mit Android 16 und Kernel 6.6. Verschlüsselung, Magisk-Root, Telefonie mit VoLTE, Verbindungen, Kameras, microG und die App-Stores sind geprüft; offen ist nur Glyph. Eine öffentliche Veröffentlichung gibt es bisher nicht.
 
@@ -18,7 +18,7 @@
 
 - **Ohne Google-Dienste:** microG ersetzt die proprietären Google Play-Dienste.
 - **Apps nach eigener Wahl:** F-Droid ist als App-Store eingebaut; alle mitgelieferten Apps sind quelloffen. Wer Apps aus Google Play braucht, kann Aurora Store selbst aus F-Droid installieren.
-- **Infomaniak-Integration (in Arbeit):** Kontakte und Kalender über kSync direkt in den System-Apps, Infomaniak Mail, kDrive und Backups aufs kDrive. Details in [APPS.md](docs/APPS.md).
+- **Infomaniak-Integration:** Kontakte und Kalender über kSync direkt in den System-Apps, Infomaniak Mail und kDrive vorinstalliert; Backups aufs kDrive werden noch getestet. Details in [APPS.md](docs/APPS.md).
 - **Updates über den eingebauten Updater:** künftige Versionen kommen direkt aufs Handy ([OTA.md](docs/OTA.md)).
 - **Nachvollziehbare Entwicklung:** feste Quellenstände, offene Skripte und dokumentierte Tests.
 - **Optionales Root:** Magisk lässt sich nach dem ersten Start installieren.
