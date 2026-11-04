@@ -12,13 +12,12 @@ Please report security problems privately through GitHub's "Report a vulnerabili
 | Downgrades | The Updater refuses builds older than the installed one. |
 | Build inputs | Builder container pinned by digest, source revisions recorded per build, prebuilt apps pinned by F-Droid version code and SHA-256. |
 | Preinstalled apps | Original F-Droid signatures; Android only accepts updates signed with the same key. |
-| Tangelo OS Apps repository | Built in with a pinned index certificate; F-Droid rejects any index not signed with that key. |
 | microG signature spoofing | LineageOS's restricted variant: only `com.google.android.gms` and `com.android.vending`, only when signed with microG's own key, and only Google's signature can be presented. Tangelo OS removes the debuggable-only condition so it works on the `user` build (`userscripts/before.sh`). |
 | Build type | `user`: not debuggable, no `adb root`, SELinux Enforcing. |
 
 ## What the security rests on
 
-- **The release key** (`BUILD_ROOT/keys/` on the build machine) and the **Tangelo OS Apps keys** (`~/.config/tangelo-apps-keys`). Whoever holds them can sign system updates or repository indexes. The builder's keys are stored without a password, so their protection is the build machine's: disk encryption, no other users, an encrypted offline backup.
+- **The release key** (`BUILD_ROOT/keys/` on the build machine). Whoever holds it can sign system updates. The builder's keys are stored without a password, so their protection is the build machine's: disk encryption, no other users, an encrypted offline backup.
 - **The GitHub and SourceForge accounts**, which decide what is offered. They cannot sign anything, but should use two-factor authentication.
 - **The device trees and vendor files** from NullDebris and the LineageOS and microG projects, which are trusted as upstream sources.
 

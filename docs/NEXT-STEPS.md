@@ -29,6 +29,5 @@ From the 2026-11-03 build on, phones find new builds in Settings → System → 
 
 - Confirm that a regular update through the Updater (not a local import) works, and whether the eSIM switch has to be turned on again afterwards ([OTA.md](OTA.md)).
 - Place a real call and SMS on the 2026-11-03 build.
-- Check the Tangelo OS Apps repository in F-Droid on the phone.
 - SourceForge display name "Tangelo OS".
 - `userscripts/before.sh` carries a local Glyph sepolicy fix; drop it once NullDebris fixes `glyph_app` upstream.

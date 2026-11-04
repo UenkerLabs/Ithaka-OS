@@ -35,7 +35,7 @@ The build also needs proprietary hardware support files. **This repository is op
 
 ## Follow the work
 
-Build, installation, the kernel 6.1 → 6.6 transition and boot have passed on the A059P test phone; see the [installation record](docs/INSTALLATION.md). Since the build of 2026-11-03 (current sources, the Tangelo OS Apps repository, Infomaniak apps, a hardened `user` build), updates arrive through the built-in Updater, and Glyph works; see the [status page](docs/STATUS.md). The [roadmap](docs/ROADMAP.md) lists the next steps.
+Build, installation, the kernel 6.1 → 6.6 transition and boot have passed on the A059P test phone; see the [installation record](docs/INSTALLATION.md). Since the build of 2026-11-03 (current sources, Infomaniak apps, a hardened `user` build), updates arrive through the built-in Updater, and Glyph works; see the [status page](docs/STATUS.md). The [roadmap](docs/ROADMAP.md) lists the next steps.
 
 ## Build it
 
