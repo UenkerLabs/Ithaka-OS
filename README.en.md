@@ -6,7 +6,7 @@
 
 **Your phone. Your apps. Your choice.**
 
-[Website](https://yzue1980.github.io/ithaka-os/) · [Deutsch](README.md) · [Build guide](docs/BUILD.md) · [Device status](docs/STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Contribute](CONTRIBUTING.md)
+[Website](https://yzue1980.github.io/Ithaka-OS/) · [Deutsch](README.md) · [Build guide](docs/BUILD.md) · [Device status](docs/STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Contribute](CONTRIBUTING.md)
 
 **Ithaka OS** is an unofficial Android 16 system for the **Nothing Phone (3a) Pro**. It is based on **LineageOS 23.2** and ships **microG** and **F-Droid** without preinstalled Google services. **Infomaniak** is the central service: kSync for contacts and calendars, Infomaniak Mail and kDrive are preinstalled; backup to kDrive is still being tested. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
 

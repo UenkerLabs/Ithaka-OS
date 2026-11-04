@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: Apache-2.0
-# Publish site/ to the gh-pages branch (https://yzue1980.github.io/ithaka-os/).
+# Publish site/ to the gh-pages branch (https://yzue1980.github.io/Ithaka-OS/).
 # Screenshots in site/assets/screens/ are listed by site/screens.txt
 # ("file|title|caption" per line) and inserted at <!-- SCREENS -->; without
 # screenshots the section is left out.
