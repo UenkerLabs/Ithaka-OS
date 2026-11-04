@@ -15,3 +15,12 @@ reset packages/apps/SetupWizard src/org/lineageos/setupwizard/LineageSettingsAct
 reset device/nothing/asteroids sepolicy/vendor/genfs_contexts
 reset hardware/nothing sepolicy/glyph/vendor/glyph_app.te
 reset frameworks/base services/core/java/com/android/server/pm/ComputerEngine.java
+
+# The builder resets system/core only when it applies the Play Integrity patch.
+# With APPLY_PI_PATCH=false a patch left by an earlier build would stay in the
+# tree, so remove it here.
+if [[ ${APPLY_PI_PATCH:-false} != true ]]; then
+    reset system/core fastboot/device/utility.cpp
+    reset system/core init/property_service.cpp
+    rm -f "$top/system/core/0001-Pass-SafetyNet.patch"
+fi
