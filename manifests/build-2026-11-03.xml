@@ -4,9 +4,9 @@
   <remote name="github" fetch="https://github.com/" review="review.lineageos.org"/>
   <remote name="nulldebris" fetch="https://github.com/NullDebris/"/>
   <remote name="nulldebris-gl" fetch="https://gitlab.com/NullDebris/"/>
-  
+
   <default remote="github" revision="refs/heads/lineage-23.2" sync-j="4" sync-c="true"/>
-  
+
   <project name="LineageOS/android" path="android" revision="9776e518de506f610218c4caa6c1fddff46873af" upstream="refs/heads/lineage-23.2" dest-branch="refs/heads/lineage-23.2"/>
   <project name="LineageOS/android_art" path="art" revision="18ea424e10269b368fbac5cd3ea15458cb3e6ec3" upstream="refs/heads/lineage-23.2" dest-branch="refs/heads/lineage-23.2" groups="pdk"/>
   <project name="LineageOS/android_bionic" path="bionic" revision="ff9fe01e7e1e81febaf32b15fa561aec480a112c" upstream="refs/heads/lineage-23.2" dest-branch="refs/heads/lineage-23.2" groups="pdk"/>
@@ -1211,6 +1211,6 @@
   <project name="trusty/vendor/google/aosp" remote="aosp" revision="d7d9290a95487f224042ff08a374c4261940b15d" upstream="refs/tags/android-16.0.0_r4" dest-branch="refs/tags/android-16.0.0_r4" groups="pdk,trusty">
     <copyfile src="lk_inc.mk" dest="lk_inc.mk"/>
   </project>
-  
+
   <contactinfo bugurl="go/repo-bug"/>
 </manifest>

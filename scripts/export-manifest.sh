@@ -28,6 +28,8 @@ default = re.search(r'<default [^>]*remote="([^"]+)"', text)
 for name in re.findall(r'<remote name="([^"]+)"', text):
     if f'remote="{name}"' not in text and not (default and default.group(1) == name):
         text = re.sub(r'\n\s*<remote name="' + re.escape(name) + r'"[^>]*/>', '', text)
+# repo leaves indented blank lines; strip trailing whitespace for the CI check.
+text = '\n'.join(line.rstrip() for line in text.split('\n'))
 p.write_text(text)
 PY
 mv -- "$out.tmp" "$out"
