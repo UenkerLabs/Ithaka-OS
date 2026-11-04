@@ -1,5 +1,21 @@
 [
   {
+    "datetime": 1793771677,
+    "files": [
+      {
+        "filename": "lineage-23.2-20261104-UNOFFICIAL-asteroids.zip",
+        "os_patch_level": "2026-10-01",
+        "os_sdk_level": 36,
+        "ota_property_files": "payload_metadata.bin:4696:132419,payload.bin:4696:1854257230,payload_properties.txt:1854261984:156,apex_info.pb:2338:1346,care_map.pb:3731:918,metadata:69:681,metadata.pb:818:1472                        ",
+        "sha256": "b780a2770c17808c8882492157f79dcd1013f6ac2bd0c898027fa604c1972cec",
+        "size": 1854264959,
+        "url": "https://sourceforge.net/projects/asteroids-lineage-microg/files/asteroids/lineage-23.2-20261104-UNOFFICIAL-asteroids.zip/download"
+      }
+    ],
+    "type": "unofficial",
+    "version": "23.2"
+  },
+  {
     "datetime": 1793726933,
     "files": [
       {
