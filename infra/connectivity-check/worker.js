@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-// Connectivity check endpoint for Tangelo OS (see docs/PRIVACY.md).
+// Connectivity check endpoint for Ithaka OS (see docs/PRIVACY.md).
 // Answers /generate_204 with an empty 204 response and logs nothing.
 export default {
   fetch(request) {

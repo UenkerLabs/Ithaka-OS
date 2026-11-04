@@ -1,20 +1,20 @@
-<p align="center"><img src="docs/banner.svg" alt="Tangelo OS for the Nothing Phone (3a) Pro. Built in the open." /></p>
+<p align="center"><img src="docs/banner.svg" alt="Ithaka OS for the Nothing Phone (3a) Pro. Built in the open." /></p>
 
-# Tangelo OS
+# Ithaka OS
 
-[![Project validation](https://github.com/YZUe1980/tangelo-os/actions/workflows/validate.yml/badge.svg)](https://github.com/YZUe1980/tangelo-os/actions/workflows/validate.yml)
+[![Project validation](https://github.com/YZUe1980/ithaka-os/actions/workflows/validate.yml/badge.svg)](https://github.com/YZUe1980/ithaka-os/actions/workflows/validate.yml)
 
 **Your phone. Your apps. Your choice.**
 
-[Website](https://yzue1980.github.io/tangelo-os/) · [Deutsch](README.md) · [Build guide](docs/BUILD.md) · [Device status](docs/STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Contribute](CONTRIBUTING.md)
+[Website](https://yzue1980.github.io/ithaka-os/) · [Deutsch](README.md) · [Build guide](docs/BUILD.md) · [Device status](docs/STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Contribute](CONTRIBUTING.md)
 
-**Tangelo OS** is an unofficial Android 16 system for the **Nothing Phone (3a) Pro**. It is based on **LineageOS 23.2** and ships **microG** and **F-Droid** without preinstalled Google services. **Infomaniak** is the central service: kSync for contacts and calendars, Infomaniak Mail and kDrive are preinstalled; backup to kDrive is still being tested. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
+**Ithaka OS** is an unofficial Android 16 system for the **Nothing Phone (3a) Pro**. It is based on **LineageOS 23.2** and ships **microG** and **F-Droid** without preinstalled Google services. **Infomaniak** is the central service: kSync for contacts and calendars, Infomaniak Mail and kDrive are preinstalled; backup to kDrive is still being tested. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
 
 **Development preview:** the system runs on our A059P with Android 16 and kernel 6.6. Encryption, SELinux Enforcing, calls with VoLTE, connectivity, cameras, Glyph and F-Droid are verified. Development builds are available from SourceForge and through the built-in Updater.
 
-*The name:* a tangelo is a cross between a grapefruit and a mandarin. Tangelo OS is a cross as well: LineageOS, microG and Infomaniak, combined into something of its own.
+*The name:* Ithaka is the home island Odysseus returns to after his long voyage. In Constantine Cavafy's poem "Ithaka", what matters is not the arrival but the journey and what it teaches. Ithaka OS stands for that goal: a phone that truly belongs to its owner, and the way of building it yourself.
 
-## What Tangelo OS is
+## What Ithaka OS is
 
 | Component | State |
 | --- | --- |
@@ -29,7 +29,7 @@
 
 ## “Without Google”, with a clear meaning
 
-Tangelo OS has no preinstalled proprietary Google Play Services or Google apps. That does **not** mean every possible Google connection disappears: optional microG features can connect to Google. Aurora Store is deliberately not preinstalled, because it accesses Google Play and Google's terms of service make no allowance for third-party clients; installing it from F-Droid is each user's own choice. Network defaults and remaining dependencies are part of the work we document.
+Ithaka OS has no preinstalled proprietary Google Play Services or Google apps. That does **not** mean every possible Google connection disappears: optional microG features can connect to Google. Aurora Store is deliberately not preinstalled, because it accesses Google Play and Google's terms of service make no allowance for third-party clients; installing it from F-Droid is each user's own choice. Network defaults and remaining dependencies are part of the work we document.
 
 The build also needs proprietary hardware support files. **This repository is open source; the entire firmware stack is not.** It contains build configuration and links to upstream sources, rather than firmware archives, APKs or private signing keys.
 
@@ -40,8 +40,8 @@ Build, installation, the kernel 6.1 → 6.6 transition and boot have passed on t
 ## Build it
 
 ```bash
-git clone https://github.com/YZUe1980/tangelo-os.git
-cd tangelo-os
+git clone https://github.com/YZUe1980/ithaka-os.git
+cd ithaka-os
 ./scripts/build.sh --dry-run
 ./scripts/build.sh
 ```
@@ -54,8 +54,8 @@ Useful contributions include reviewing device changes, documenting reproducible 
 
 ## Credits and licensing
 
-Tangelo OS builds on [LineageOS](https://github.com/LineageOS), [NullDebris's device and kernel work](https://github.com/NullDebris), [LineageOS for microG's build tooling](https://github.com/lineageos4microg/docker-lineage-cicd), [microG](https://microg.org/) and [F-Droid](https://f-droid.org/). The original device-tree contributors retain their credits in the upstream sources.
+Ithaka OS builds on [LineageOS](https://github.com/LineageOS), [NullDebris's device and kernel work](https://github.com/NullDebris), [LineageOS for microG's build tooling](https://github.com/lineageos4microg/docker-lineage-cicd), [microG](https://microg.org/) and [F-Droid](https://f-droid.org/). The original device-tree contributors retain their credits in the upstream sources.
 
-New scripts and documentation in this repository are licensed under [Apache-2.0](LICENSE). Upstream software and proprietary hardware files retain their own licenses; see [third-party notes](docs/THIRD_PARTY.md). Tangelo OS is an independent community project, unaffiliated with Nothing, the LineageOS project or Infomaniak.
+New scripts and documentation in this repository are licensed under [Apache-2.0](LICENSE). Upstream software and proprietary hardware files retain their own licenses; see [third-party notes](docs/THIRD_PARTY.md). Ithaka OS is an independent community project, unaffiliated with Nothing, the LineageOS project or Infomaniak.
 
 GitHub Actions validates scripts and manifests on changes. The full Android build currently runs on the development machine. [CI details](docs/CI.md).

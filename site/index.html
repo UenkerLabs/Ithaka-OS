@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tangelo OS</title>
-<meta name="description" content="Tangelo OS: an unofficial Android 16 system for the Nothing Phone (3a) Pro, based on LineageOS 23.2 with microG and F-Droid. Open build recipes, documented device tests, updates over the air.">
+<title>Ithaka OS</title>
+<meta name="description" content="Ithaka OS: an unofficial Android 16 system for the Nothing Phone (3a) Pro, based on LineageOS 23.2 with microG and F-Droid. Open build recipes, documented device tests, updates over the air.">
 <link rel="icon" href="assets/favicon.png">
 <style>
 :root {
   --bg: #0b0d10; --panel: #13161b; --panel2: #191d23; --line: #262b33;
-  --text: #f2f4f7; --muted: #9aa3ae; --orange: #ff7014; --amber: #ffc846;
+  --text: #f2f4f7; --muted: #9aa3ae; --sea: #3f8ff0; --amber: #ffc846;
   --ok: #4cc38a; --warn: #f0b429;
   --radius: 18px; --max: 1120px;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif;
@@ -35,14 +35,14 @@ nav .links a:hover { color: var(--text); text-decoration: none; }
 /* Hero */
 .hero { padding: 72px 0 56px; text-align: center; }
 .hero .anim { width: min(810px, 100%); aspect-ratio: 3 / 1; border-radius: var(--radius); background: #000; border: 1px solid var(--line); display: block; margin: 0 auto 40px; object-fit: cover; }
-.eyebrow { font: 600 13px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--orange); }
+.eyebrow { font: 600 13px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sea); }
 h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.08; margin: 14px 0 16px; letter-spacing: -.02em; }
 .lead { font-size: clamp(17px, 2.2vw, 21px); color: var(--muted); max-width: 720px; margin: 0 auto 32px; }
 .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; border: 1px solid var(--line); color: var(--text); background: var(--panel); }
 .btn:hover { text-decoration: none; border-color: #3a414c; }
-.btn.primary { background: var(--orange); border-color: var(--orange); color: #140800; }
-.btn.primary:hover { background: #ff8432; }
+.btn.primary { background: var(--sea); border-color: var(--sea); color: #020c1c; }
+.btn.primary:hover { background: #5ea4f6; }
 .meta { margin-top: 18px; font: 14px var(--mono); color: var(--muted); }
 
 section { padding: 72px 0; border-top: 1px solid var(--line); }
@@ -69,7 +69,7 @@ h2 { font-size: clamp(26px, 3.6vw, 36px); margin: 8px 0 12px; letter-spacing: -.
 /* Steps */
 .steps { counter-reset: s; display: grid; gap: 14px; padding: 0; margin: 0; list-style: none; max-width: 820px; }
 .steps li { counter-increment: s; position: relative; padding: 18px 20px 18px 64px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
-.steps li::before { content: counter(s); position: absolute; left: 18px; top: 16px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: #ff70141f; color: var(--orange); font: 700 15px var(--mono); }
+.steps li::before { content: counter(s); position: absolute; left: 18px; top: 16px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: #3f8ff01f; color: var(--sea); font: 700 15px var(--mono); }
 .note { margin-top: 18px; max-width: 820px; padding: 16px 20px; border-radius: 14px; background: #f0b42914; border: 1px solid #f0b42940; color: #f6dca0; font-size: 15.5px; }
 code { font: 14px var(--mono); background: var(--panel2); padding: 2px 6px; border-radius: 6px; }
 
@@ -118,22 +118,22 @@ footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
 <body>
 
 <nav><div class="wrap">
-  <a class="brand" href="#"><img src="assets/icon.png" alt="">Tangelo OS</a>
+  <a class="brand" href="#"><img src="assets/icon.png" alt="">Ithaka OS</a>
   <div class="links">
     <a href="#features">Features</a><a href="#screens">Screens</a><a href="#install">Install</a><a href="#status">Status</a><a href="#download">Download</a>
-    <a href="https://github.com/YZUe1980/tangelo-os">GitHub</a>
+    <a href="https://github.com/YZUe1980/ithaka-os">GitHub</a>
   </div>
 </div></nav>
 
 <header class="hero dots"><div class="wrap">
-  <img class="anim" src="assets/bootanimation.webp" alt="The Tangelo OS boot animation: a tangelo slice drawn in dots next to the dot-matrix word TANGELO">
+  <img class="anim" src="assets/bootanimation.webp" alt="The Ithaka OS boot animation: the sun rising over an island and the sea, drawn in dots, next to the dot-matrix word ITHAKA">
   <div class="eyebrow">Android 16 · Nothing Phone (3a) Pro</div>
   <h1>Your phone, without the strings attached.</h1>
-  <p class="lead">Tangelo OS is an unofficial Android system based on LineageOS 23.2 with microG and F-Droid. No preinstalled Google services, no tracking defaults, no grey zones, and every build recipe in the open.</p>
+  <p class="lead">Ithaka OS is an unofficial Android system based on LineageOS 23.2 with microG and F-Droid. No preinstalled Google services, no tracking defaults, no grey zones, and every build recipe in the open.</p>
   <div class="cta">
     <a class="btn primary" href="#download">Download build 2026-11-04</a>
     <a class="btn" href="#install">How to install</a>
-    <a class="btn" href="https://github.com/YZUe1980/tangelo-os">Source on GitHub</a>
+    <a class="btn" href="https://github.com/YZUe1980/ithaka-os">Source on GitHub</a>
   </div>
   <div class="meta">Development build · LineageOS 23.2 · security patch 2026-10-01</div>
 </div></header>
@@ -143,17 +143,17 @@ footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
   <h2>Everything you need. Nothing you didn't ask for.</h2>
   <p class="sub">A careful set of defaults, decided once and written down, so you don't have to hunt through settings after every install.</p>
   <div class="grid">
-    <div class="card"><svg class="icon" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#ff7014" stroke-width="3"/><circle cx="18" cy="18" r="5" fill="#ffc846"/></svg>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#3f8ff0" stroke-width="3"/><circle cx="18" cy="18" r="5" fill="#ffc846"/></svg>
       <h3>microG instead of Google</h3><p>Apps that expect Google services keep working through microG. No Google account needed, nothing preinstalled from Google.</p></div>
-    <div class="card"><svg class="icon" viewBox="0 0 36 36"><g fill="#ff7014"><circle cx="8" cy="8" r="4"/><circle cx="18" cy="8" r="4"/><circle cx="28" cy="8" r="4" fill="#ffc846"/><circle cx="8" cy="18" r="4" fill="#ffc846"/><circle cx="18" cy="18" r="4"/><circle cx="28" cy="18" r="4"/><circle cx="8" cy="28" r="4"/><circle cx="18" cy="28" r="4" fill="#ffc846"/><circle cx="28" cy="28" r="4"/></g></svg>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><g fill="#3f8ff0"><circle cx="8" cy="8" r="4"/><circle cx="18" cy="8" r="4"/><circle cx="28" cy="8" r="4" fill="#ffc846"/><circle cx="8" cy="18" r="4" fill="#ffc846"/><circle cx="18" cy="18" r="4"/><circle cx="28" cy="18" r="4"/><circle cx="8" cy="28" r="4"/><circle cx="18" cy="28" r="4" fill="#ffc846"/><circle cx="28" cy="28" r="4"/></g></svg>
       <h3>F-Droid as the app store</h3><p>F-Droid is the one built-in store, together with the project's own signed repository. Aurora Store is one tap away in F-Droid if you need Play apps.</p></div>
-    <div class="card"><svg class="icon" viewBox="0 0 36 36"><path d="M18 3l13 5v9c0 8-6 14-13 16C11 31 5 25 5 17V8z" fill="none" stroke="#ff7014" stroke-width="3"/><path d="M12 18l4 4 8-9" fill="none" stroke="#ffc846" stroke-width="3"/></svg>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><path d="M18 3l13 5v9c0 8-6 14-13 16C11 31 5 25 5 17V8z" fill="none" stroke="#3f8ff0" stroke-width="3"/><path d="M12 18l4 4 8-9" fill="none" stroke="#ffc846" stroke-width="3"/></svg>
       <h3>Privacy by default</h3><p>LineageOS statistics are opt-in, network time comes from Germany's national metrology institute PTB, and remaining default connections are documented.</p></div>
-    <div class="card"><svg class="icon" viewBox="0 0 36 36"><rect x="7" y="15" width="22" height="16" rx="3" fill="none" stroke="#ff7014" stroke-width="3"/><path d="M12 15v-4a6 6 0 0 1 12 0v4" fill="none" stroke="#ffc846" stroke-width="3"/></svg>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><rect x="7" y="15" width="22" height="16" rx="3" fill="none" stroke="#3f8ff0" stroke-width="3"/><path d="M12 15v-4a6 6 0 0 1 12 0v4" fill="none" stroke="#ffc846" stroke-width="3"/></svg>
       <h3>Hardened user build</h3><p>A real <code>user</code> build with SELinux enforcing and no debuggable system, signed with the project's own keys.</p></div>
-    <div class="card"><svg class="icon" viewBox="0 0 36 36"><path d="M18 5v18m-7-7l7 7 7-7" fill="none" stroke="#ff7014" stroke-width="3"/><path d="M6 27v4h24v-4" fill="none" stroke="#ffc846" stroke-width="3"/></svg>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><path d="M18 5v18m-7-7l7 7 7-7" fill="none" stroke="#3f8ff0" stroke-width="3"/><path d="M6 27v4h24v-4" fill="none" stroke="#ffc846" stroke-width="3"/></svg>
       <h3>Updates over the air</h3><p>New builds arrive in Settings → System → Updater, streamed and installed in the background on the inactive slot, with automatic fallback.</p></div>
-    <div class="card"><svg class="icon" viewBox="0 0 36 36"><g fill="#ffc846"><circle cx="10" cy="10" r="3"/><circle cx="26" cy="10" r="3"/><circle cx="10" cy="26" r="3"/><circle cx="26" cy="26" r="3"/></g><circle cx="18" cy="18" r="6" fill="none" stroke="#ff7014" stroke-width="3"/></svg>
+    <div class="card"><svg class="icon" viewBox="0 0 36 36"><g fill="#ffc846"><circle cx="10" cy="10" r="3"/><circle cx="26" cy="10" r="3"/><circle cx="10" cy="26" r="3"/><circle cx="26" cy="26" r="3"/></g><circle cx="18" cy="18" r="6" fill="none" stroke="#3f8ff0" stroke-width="3"/></svg>
       <h3>Glyph lights work</h3><p>The rear Glyph interface works with per-app notification and call animations, thanks to the ParanoidGlyph app and a fixed SELinux policy.</p></div>
   </div>
 </div></section>
@@ -169,7 +169,7 @@ footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
 
 <section id="install"><div class="wrap">
   <div class="eyebrow">Install &amp; update</div>
-  <h2>Updating from an earlier Tangelo OS build</h2>
+  <h2>Updating from an earlier Ithaka OS build</h2>
   <p class="sub">Phones running the 2026-11-03 build or later get new builds in the Updater automatically (Settings → System → Updater). To move up from the 2026-10-14 build once:</p>
   <ol class="steps">
     <li>Download the zip below and copy it to the phone, then check its SHA-256.</li>
@@ -178,7 +178,7 @@ footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
     <li>Tap <b>Reboot</b>. The new system starts from the other slot; if it does not boot, the phone falls back automatically.</li>
   </ol>
   <div class="note"><b>Check your SIM after the first boot.</b> On the test phone the eSIM had to be switched on again: Settings → Network &amp; internet → eSIM settings → eSIM, then enable the profile under SIMs.</div>
-  <p class="sub" style="margin-top:28px">A fresh installation needs an unlocked bootloader and fastboot; it erases the phone. The steps are in the <a href="https://github.com/YZUe1980/tangelo-os/blob/main/docs/INSTALLATION.md">installation guide</a>.</p>
+  <p class="sub" style="margin-top:28px">A fresh installation needs an unlocked bootloader and fastboot; it erases the phone. The steps are in the <a href="https://github.com/YZUe1980/ithaka-os/blob/main/docs/INSTALLATION.md">installation guide</a>.</p>
 </div></section>
 
 <section id="status"><div class="wrap">
@@ -198,7 +198,7 @@ footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
       <tr><td>Banking and DRM apps</td><td><span class="pill warn">not promised</span></td><td>No Play Integrity workaround: the system reports its real state, so some banking apps refuse to run</td></tr>
     </tbody>
   </table></div>
-  <p class="sub" style="margin-top:18px">Full record: <a href="https://github.com/YZUe1980/tangelo-os/blob/main/docs/STATUS.md">STATUS.md</a>.</p>
+  <p class="sub" style="margin-top:18px">Full record: <a href="https://github.com/YZUe1980/ithaka-os/blob/main/docs/STATUS.md">STATUS.md</a>.</p>
 </div></section>
 
 <section id="download" class="dots"><div class="wrap">
@@ -215,7 +215,7 @@ footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
       </dl>
       <div class="cta" style="justify-content:flex-start;margin-top:22px">
         <a class="btn primary" href="https://sourceforge.net/projects/asteroids-lineage-microg/files/asteroids/lineage-23.2-20261104-UNOFFICIAL-asteroids.zip/download">Download from SourceForge</a>
-        <a class="btn" href="https://github.com/YZUe1980/tangelo-os/blob/main/docs/BUILD-RECORD-2026-11-04.md">Build record</a>
+        <a class="btn" href="https://github.com/YZUe1980/ithaka-os/blob/main/docs/BUILD-RECORD-2026-11-04.md">Build record</a>
       </div>
     </div>
     <div class="card">
@@ -226,8 +226,8 @@ footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
 </div></section>
 
 <footer><div class="wrap cols">
-  <div>Tangelo OS builds on <a href="https://lineageos.org">LineageOS</a>, <a href="https://github.com/NullDebris">NullDebris's device and kernel work</a>, <a href="https://microg.org">microG</a> and <a href="https://f-droid.org">F-Droid</a>.<br>Not affiliated with Nothing Technology or the LineageOS project.</div>
-  <div>Scripts and texts: Apache-2.0 · <a href="https://github.com/YZUe1980/tangelo-os">github.com/YZUe1980/tangelo-os</a></div>
+  <div>Ithaka OS builds on <a href="https://lineageos.org">LineageOS</a>, <a href="https://github.com/NullDebris">NullDebris's device and kernel work</a>, <a href="https://microg.org">microG</a> and <a href="https://f-droid.org">F-Droid</a>.<br>Not affiliated with Nothing Technology or the LineageOS project.</div>
+  <div>Scripts and texts: Apache-2.0 · <a href="https://github.com/YZUe1980/ithaka-os">github.com/YZUe1980/ithaka-os</a></div>
 </div></footer>
 
 </body>

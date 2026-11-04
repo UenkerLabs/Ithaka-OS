@@ -53,8 +53,8 @@ if missing:
     print(f'Warning: not found in vendor/lineage/config: {sorted(missing)}')
 PY
 
-# Preconfigure the Tangelo OS app repository in F-Droid, next to microG's
-# repositories. F-Droid reads the XML (older clients) and the JSON (current
+# Add the F-Droid repositories in userscripts/fdroid-repos.json (currently
+# none) next to microG's repositories. F-Droid reads the XML (older clients) and the JSON (current
 # clients) from /product/etc/org.fdroid.fdroid/. begin.sh undoes this before
 # the next sync.
 python3 - "$src/fdroid-repos.json" vendor/partner_gms/additional_repos.xml <<'PY'
@@ -77,10 +77,11 @@ items = ''.join(
 xml.write_text(text.replace('    </string-array>', items + '    </string-array>', 1))
 PY
 
-# Tangelo OS overlays (branding, setup wizard texts) in vendor/tangelo.
-rm -rf vendor/tangelo
-cp -r "$src/vendor-tangelo" vendor/tangelo
-printf '\n$(call inherit-product, vendor/tangelo/tangelo.mk)\n' >> vendor/lineage/config/common.mk
+# Ithaka OS overlays (branding, setup wizard texts) in vendor/ithaka.
+# vendor/tangelo is the location used by the builds of 2026-11-03 and -04.
+rm -rf vendor/ithaka vendor/tangelo
+cp -r "$src/vendor-ithaka" vendor/ithaka
+printf '\n$(call inherit-product, vendor/ithaka/ithaka.mk)\n' >> vendor/lineage/config/common.mk
 
 # LineageOS statistics: opt-in instead of a pre-ticked box in the setup wizard.
 # begin.sh undoes this before the next sync.
@@ -125,11 +126,11 @@ if new not in policy:
 print(f'Glyph fix: relabelled {n} LED nodes')
 PY
 
-# Tangelo OS boot animation in place of the LineageOS one.
+# Ithaka OS boot animation in place of the LineageOS one.
 cp "$src/bootanimation/bootanimation.tar" "$src/bootanimation/desc.txt" vendor/lineage/bootanimation/
 
 # microG signature spoofing on the user build. LineageOS only honours microG's
-# fake signature when the build is debuggable; since Tangelo OS is a user build,
+# fake signature when the build is debuggable; since Ithaka OS is a user build,
 # remove that one check (as the builder's legacy USER_BUILD_SPOOFING option
 # does). The remaining checks stay: only com.google.android.gms and
 # com.android.vending, only when signed with microG's own key, and only

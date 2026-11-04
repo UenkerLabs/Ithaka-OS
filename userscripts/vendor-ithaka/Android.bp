@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: Apache-2.0
+// Ithaka OS overlays, copied to vendor/ithaka by userscripts/before.sh.
+
+runtime_resource_overlay {
+    name: "IthakaUpdaterOverlay",
+    resource_dirs: ["overlays/IthakaUpdaterOverlay/res"],
+    manifest: "overlays/IthakaUpdaterOverlay/AndroidManifest.xml",
+    product_specific: true,
+}
+
+runtime_resource_overlay {
+    name: "IthakaSetupWizardOverlay",
+    resource_dirs: ["overlays/IthakaSetupWizardOverlay/res"],
+    manifest: "overlays/IthakaSetupWizardOverlay/AndroidManifest.xml",
+    product_specific: true,
+}
+
+runtime_resource_overlay {
+    name: "IthakaFrameworkOverlay",
+    resource_dirs: ["overlays/IthakaFrameworkOverlay/res"],
+    manifest: "overlays/IthakaFrameworkOverlay/AndroidManifest.xml",
+    product_specific: true,
+}

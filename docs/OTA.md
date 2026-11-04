@@ -37,4 +37,4 @@ To withdraw a build, remove its entry and push. The Updater deletes partial down
 
 ## Overriding the update address
 
-`lineage.updater.uri` overrides the built-in address until the next reboot. Setting it needs root, which Tangelo OS does not have; it was only possible on the rooted 2026-10-14 build and was not used. Keep a backup and a known-good fastboot image set.
+`lineage.updater.uri` overrides the built-in address until the next reboot. Setting it needs root, which Ithaka OS does not have; it was only possible on the rooted 2026-10-14 build and was not used. Keep a backup and a known-good fastboot image set.

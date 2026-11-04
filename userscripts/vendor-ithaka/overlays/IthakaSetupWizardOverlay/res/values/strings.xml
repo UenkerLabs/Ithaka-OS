@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="os_name" translatable="false">Ithaka OS</string>
+    <string name="setup_services">Ithaka OS features</string>
+    <!-- The statistics go to the LineageOS project, so name it explicitly. -->
+    <string name="services_help_improve_cm">Help improve LineageOS</string>
+    <string name="services_metrics_label"><xliff:g id="name" example="Help improve LineageOS">%1$s</xliff:g>, on which Ithaka OS is based, by sending anonymous statistics to the LineageOS project: a device hash, model, system version, country and mobile carrier. Off unless you turn it on.</string>
+</resources>

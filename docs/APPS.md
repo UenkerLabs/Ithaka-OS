@@ -14,7 +14,7 @@ Aurora Store is deliberately not preinstalled (since the build after 2026-11-03)
 
 ## Extra F-Droid repositories
 
-`userscripts/fdroid-repos.json` can add F-Droid repositories that are enabled from the first start; `userscripts/before.sh` merges them into microG's list in `/product/etc/org.fdroid.fdroid/`. The list is empty: the project's own app repository was separated from Tangelo OS on 2026-11-04. Builds of 2026-11-03 and 2026-11-04 still list it; it can be removed in F-Droid → Settings → Repositories.
+`userscripts/fdroid-repos.json` can add F-Droid repositories that are enabled from the first start; `userscripts/before.sh` merges them into microG's list in `/product/etc/org.fdroid.fdroid/`. The list is empty: the project's own app repository was separated from Ithaka OS on 2026-11-04. Builds of 2026-11-03 and 2026-11-04 still list it; it can be removed in F-Droid → Settings → Repositories.
 
 ## Removed LineageOS apps
 

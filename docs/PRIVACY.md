@@ -1,21 +1,21 @@
 # Privacy defaults
 
-What Tangelo OS changes compared with LineageOS, and which default connections remain. Tangelo OS stays a free hobby project and avoids legal grey zones where it can, so it does not use other projects' servers without their explicit permission.
+What Ithaka OS changes compared with LineageOS, and which default connections remain. Ithaka OS stays a free hobby project and avoids legal grey zones where it can, so it does not use other projects' servers without their explicit permission.
 
 ## Changed
 
-| Area | LineageOS | Tangelo OS | Since |
+| Area | LineageOS | Ithaka OS | Since |
 | --- | --- | --- | --- |
-| LineageOS statistics | Pre-ticked box in the setup wizard; when left on, a device hash, model, version, country and carrier go to `stats.lineageos.org` | Opt-in: the box starts unticked and its text names the LineageOS project and the data sent (`userscripts/before.sh`, `vendor-tangelo` overlay) | Build after 2026-11-03 |
+| LineageOS statistics | Pre-ticked box in the setup wizard; when left on, a device hash, model, version, country and carrier go to `stats.lineageos.org` | Opt-in: the box starts unticked and its text names the LineageOS project and the data sent (`userscripts/before.sh`, `vendor-ithaka` overlay) | Build after 2026-11-03 |
 | Build type | `userdebug` | `user`: no `adb root`, no debuggable system | Build after 2026-11-03 |
 | Aurora Store | — | Not preinstalled; installable from F-Droid | Build after 2026-11-03 |
-| Time (NTP) | `time.android.com` (Google) | `ptbtime1`–`ptbtime3.ptb.de`, the public NTP service of Germany's national metrology institute PTB (`TangeloFrameworkOverlay`) | Build after 2026-11-03 |
+| Time (NTP) | `time.android.com` (Google) | `ptbtime1`–`ptbtime3.ptb.de`, the public NTP service of Germany's national metrology institute PTB (`IthakaFrameworkOverlay`) | Build after 2026-11-03 |
 
 The setting can be changed at any time under LineageOS statistics in the Trust settings (Settings → Security & privacy → Trust). Installations from builds up to 2026-10-14 keep whatever was chosen during setup; check it there.
 
 ## Connectivity check: Android default kept
 
-Android checks every network with an HTTP and an HTTPS request to Google (`connectivitycheck.gstatic.com`, `www.google.com`); Google learns that the device is online, nothing else. Tangelo OS keeps this default (decision of 2026-11-03):
+Android checks every network with an HTTP and an HTTPS request to Google (`connectivitycheck.gstatic.com`, `www.google.com`); Google learns that the device is online, nothing else. Ithaka OS keeps this default (decision of 2026-11-03):
 
 - GrapheneOS runs its own endpoints, but there is no statement that other systems may use them.
 - Turning the check off would also turn off captive-portal sign-in pages (hotel, train Wi-Fi) and the switch to mobile data when Wi-Fi has no internet.

@@ -1,16 +1,18 @@
 # Roadmap
 
-Decisions as of 2026-11-03. Tangelo OS stays free; it avoids legal grey zones where it can and accepts them only where unavoidable (proprietary device firmware).
+*Name:* Ithaka OS since 2026-11-04 (before: Leman OS, then Tangelo OS; "TANGELO" is a registered software trademark of another company).
 
-## Next build: current sources, Tangelo OS apps and privacy defaults
+Decisions as of 2026-11-03. Ithaka OS stays free; it avoids legal grey zones where it can and accepts them only where unavoidable (proprietary device firmware).
+
+## Next build: current sources, Ithaka OS apps and privacy defaults
 
 The first plan was to change one area per build. On 2026-11-03 the following were brought forward into one build instead; it needs a correspondingly thorough device test ([STATUS.md](STATUS.md)) before it is offered through the Updater.
 
 - Tracking build with the upstream changes listed in [UPSTREAM.md](UPSTREAM.md), including the Glyph fixes; re-test Glyph, which is faulty on the 2026-10-14 build.
 - First build with the built-in update address ([OTA.md](OTA.md)); zips are published on SourceForge.
-- Tangelo OS boot animation (`scripts/gen-bootanimation.py`).
+- Ithaka OS boot animation (`scripts/gen-bootanimation.py`).
 - **Apps** ([APPS.md](APPS.md)): F-Droid as the only bundled store (Aurora Store no longer preinstalled); kSync, Infomaniak Mail and kDrive preinstalled (an own F-Droid repository was enabled in the 2026-11-03 and 2026-11-04 builds and removed again on 2026-11-04); Twelve left out.
-- **Branding:** "Tangelo OS · LineageOS 23.2" in the Updater and the setup wizard (`userscripts/vendor-tangelo/`). Internal identifiers (`lineage-*.zip`, `ro.lineage.*`, release type) stay unchanged so OTA updates keep working.
+- **Branding:** "Ithaka OS · LineageOS 23.2" in the Updater and the setup wizard (`userscripts/vendor-ithaka/`). Internal identifiers (`lineage-*.zip`, `ro.lineage.*`, release type) stay unchanged so OTA updates keep working.
 - **Privacy defaults** ([PRIVACY.md](PRIVACY.md)): LineageOS statistics opt-in; time from PTB instead of Google.
 - **Hardened `user` build** instead of `userdebug`.
 
@@ -29,7 +31,7 @@ A locked bootloader with an own key does not pass Google's device integrity chec
 
 ## Waiting for accounts
 
-- SourceForge upload key and the project display name "Tangelo OS".
+- SourceForge upload key and the project display name "Ithaka OS".
 
 ## Later
 

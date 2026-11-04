@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Generate the Tangelo OS boot animation frames.
+"""Generate the Ithaka OS boot animation frames.
 
 Usage: scripts/gen-bootanimation.py OUT_DIR [--preview FILE.mp4]
 
@@ -10,9 +10,10 @@ LineageOS's vendor/lineage/bootanimation expects: 3:1 PNG frames in part0
 The build later scales the frames to the screen width and adds the size line
 to desc.txt. The output is deterministic, so only this script is versioned.
 
-The picture: a tangelo slice drawn in dots (orange rind, yellow-to-orange
-segments) next to a dot-matrix TANGELO wordmark. The segments fan in one by
-one, the slice then glows with a slow ripple while the phone boots.
+The picture: a round window onto the sea, drawn in dots: the sun rises over
+the island of Ithaka while waves run across the water, next to a dot-matrix
+ITHAKA wordmark. While the phone boots, the waves keep moving and the sun
+glows softly.
 Requires Pillow (pip install pillow).
 """
 from pathlib import Path
@@ -27,39 +28,45 @@ W, H = 1620, 540          # 3:1 canvas, as in LineageOS
 SS = 2                    # supersampling for smooth dots
 FPS = 60                  # fixed by gen-bootanimation.sh
 BG = (0, 0, 0)
-RIND = (255, 112, 20)
-FLESH_IN = (255, 214, 92)
-FLESH_OUT = (255, 150, 30)
-WORD = (255, 244, 224)
+SUN = (255, 196, 64)
+ISLAND = (236, 214, 170)
+SEA_NEAR = (40, 120, 220)
+SEA_FAR = (110, 190, 255)
+WORD = (232, 242, 255)
 
-# --- the slice -------------------------------------------------------------
+# --- the window onto the sea -------------------------------------------------
 CX, CY, R = 330, 270, 205
-SEGMENTS = 8
-PS = 19                    # dot pitch inside the slice
-slice_dots = []            # (x, y, colour, radius, angle 0..1 from top, r/R)
+PS = 19                    # dot pitch inside the window
+HORIZON = CY + 18          # sea below, sky above
+SUN_X, SUN_R = CX + 92, 52
+scene_dots = []            # (x, y, colour, radius, kind, row)
 for gy in range(-R, R + 1, PS):
     for gx in range(-R, R + 1, PS):
-        r = math.hypot(gx, gy)
-        if r > R:
+        if math.hypot(gx, gy) > R:
             continue
-        ang = (math.atan2(gx, -gy) / (2 * math.pi)) % 1.0
-        rr = r / R
-        if rr > 0.86:
-            colour, size = RIND, 0.42
-        else:
-            if rr < 0.13:
-                continue                       # pale centre
-            seg = ang * SEGMENTS
-            gap = min(seg % 1, 1 - seg % 1) / SEGMENTS * 2 * math.pi * r
-            if gap < PS * 0.75:
-                continue                       # white pith between segments
-            t = (rr - 0.13) / 0.73
-            colour = tuple(int(a + (b - a) * t) for a, b in zip(FLESH_IN, FLESH_OUT))
-            size = 0.40
-        slice_dots.append((CX + gx, CY + gy, colour, PS * size, ang, rr))
+        x, y = CX + gx, CY + gy
+        # island: a low hill on the horizon, left of centre
+        hill = HORIZON - 62 * math.exp(-((x - (CX - 85)) / 62) ** 2)
+        if y >= HORIZON:
+            row = (y - HORIZON) // PS
+            t = min(row / 9, 1)
+            colour = tuple(int(a + (b - a) * t) for a, b in zip(SEA_FAR, SEA_NEAR))
+            scene_dots.append((x, y, colour, PS * 0.40, 'sea', row))
+        elif y >= hill:
+            scene_dots.append((x, y, ISLAND, PS * 0.40, 'island', 0))
+        elif math.hypot(x - SUN_X, y - (HORIZON - 22)) <= SUN_R:
+            scene_dots.append((x, y, SUN, PS * 0.42, 'sun', 0))
+# a ring of dots frames the window
+for i in range(72):
+    a = 2 * math.pi * i / 72
+    scene_dots.append((CX + (R + 16) * math.cos(a), CY + (R + 16) * math.sin(a),
+                       (150, 170, 200), PS * 0.22, 'ring', i))
 
 # --- the wordmark ----------------------------------------------------------
 GLYPHS = {
+    'I': ['XXXXX', '..X..', '..X..', '..X..', '..X..', '..X..', 'XXXXX'],
+    'H': ['X...X', 'X...X', 'X...X', 'XXXXX', 'X...X', 'X...X', 'X...X'],
+    'K': ['X...X', 'X..X.', 'X.X..', 'XX...', 'X.X..', 'X..X.', 'X...X'],
     'T': ['XXXXX', '..X..', '..X..', '..X..', '..X..', '..X..', '..X..'],
     'A': ['.XXX.', 'X...X', 'X...X', 'XXXXX', 'X...X', 'X...X', 'X...X'],
     'N': ['X...X', 'XX..X', 'X.X.X', 'X..XX', 'X...X', 'X...X', 'X...X'],
@@ -68,7 +75,7 @@ GLYPHS = {
     'L': ['X....', 'X....', 'X....', 'X....', 'X....', 'X....', 'XXXXX'],
     'O': ['.XXX.', 'X...X', 'X...X', 'X...X', 'X...X', 'X...X', '.XXX.'],
 }
-TEXT = 'TANGELO'
+TEXT = 'ITHAKA'
 cols = len(TEXT) * 6 - 1
 left, right = 640, W - 90
 pitch = (right - left) / (cols - 1)
@@ -96,40 +103,56 @@ def dot(d, x, y, radius, colour, level):
     d.ellipse([x * SS - r, y * SS - r, x * SS + r, y * SS + r], fill=v)
 
 
-def frame(slice_levels, word_levels):
+def frame(scene_levels, word_levels):
     img = Image.new('RGB', (W * SS, H * SS), BG)
     d = ImageDraw.Draw(img)
-    for (x, y, colour, radius, _, _), level in zip(slice_dots, slice_levels):
+    for (x, y, colour, radius, _, _), level in zip(scene_dots, scene_levels):
         dot(d, x, y, radius, colour, level)
     for (x, y, _), level in zip(word_dots, word_levels):
         dot(d, x, y, word_radius, WORD, level)
     return img.resize((W, H), Image.LANCZOS)
 
 
-def intro(n=72):
-    # Segments fan in clockwise from the top, then the word scans in.
+def scene_level(kind, x, y, row, t_intro, phase):
+    """Brightness of one scene dot. t_intro runs 0..1 during the intro."""
+    if kind == 'ring':
+        return 0.55 * ease(t_intro * 3)
+    if kind == 'sea':
+        reveal = ease(t_intro * 2.2 - (x - (CX - R)) / (2 * R))
+        wave = 0.78 + 0.22 * math.sin(phase - (x - CX) / 38 + row * 0.9)
+        return reveal * wave
+    if kind == 'island':
+        return ease((t_intro - 0.25) / 0.3)
+    # the sun rises: dots appear from the horizon upwards
+    rise = (t_intro - 0.15) / 0.55 * (SUN_R * 2 + 60)
+    level = ease((rise - (HORIZON - y)) / 40)
+    return level * (0.86 + 0.14 * math.cos(phase * 0.5))
+
+
+def intro(n=78):
+    # Ring, then the sea from the left, the island, the sun rising; then the word.
     for f in range(n):
         t = f / (n - 1)
-        sweep = t * 1.6
-        s = [ease((sweep - ang) / 0.18) for *_, ang, _ in slice_dots]
-        front = (t - 0.35) / 0.65 * (cols + 6)
+        s = [scene_level(k, x, y, row, t, 0.0) for x, y, _, _, k, row in scene_dots]
+        front = (t - 0.4) / 0.6 * (cols + 6)
         w = [ease((front - col) / 6) for _, _, col in word_dots]
         yield frame(s, w)
 
 
 def loop(n=90):
-    # A slow ripple runs outward through the slice and along the word.
+    # Waves run across the sea; the sun and the word breathe gently. Seamless.
     for f in range(n):
         phase = 2 * math.pi * f / n
-        s = [0.80 + 0.20 * math.cos(phase - rr * 5.0) for *_, rr in slice_dots]
-        w = [0.80 + 0.20 * math.cos(phase - col * 0.22) for _, _, col in word_dots]
+        s = [scene_level(k, x, y, row, 1.0, phase) for x, y, _, _, k, row in scene_dots]
+        w = [0.84 + 0.16 * math.cos(phase - col * 0.22) for _, _, col in word_dots]
         yield frame(s, w)
 
 
 def outro(n=30):
     for f in range(n):
         k = 1 - ease(f / (n - 1))
-        yield frame([k] * len(slice_dots), [k] * len(word_dots))
+        s = [k * scene_level(kd, x, y, row, 1.0, 0.0) for x, y, _, _, kd, row in scene_dots]
+        yield frame(s, [k] * len(word_dots))
 
 
 def main():

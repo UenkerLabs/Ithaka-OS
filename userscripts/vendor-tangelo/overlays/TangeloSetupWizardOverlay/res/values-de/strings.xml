@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="setup_services">Tangelo-OS-Funktionen</string>
-    <string name="services_help_improve_cm">Hilf LineageOS zu verbessern</string>
-    <string name="services_metrics_label"><xliff:g id="name" example="Hilf LineageOS zu verbessern">%1$s</xliff:g>, die Basis von Tangelo OS, indem du anonyme Statistiken an das LineageOS-Projekt sendest: einen Geräte-Hash, Modell, Systemversion, Land und Mobilfunkanbieter. Aus, solange du es nicht einschaltest.</string>
-</resources>

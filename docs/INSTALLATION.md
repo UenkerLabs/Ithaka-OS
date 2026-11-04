@@ -21,7 +21,7 @@ The kernel 6.1 → 6.6 transition required a complete matching image set. No pub
 
 ## Root on the 2026-10-14 build (historical)
 
-Tangelo OS has no root and no Magisk since the 2026-11-03 `user` build. For the record: on the 2026-10-14 `userdebug` build, after the unmodified ROM booted, official Magisk **30.7 (30700)** was installed. Following [Magisk's documentation](https://topjohnwu.github.io/Magisk/install.html), the exact ROM's `init_boot.img` was patched **on the same phone**, preserving verity and encryption, and flashed to the confirmed current partition `init_boot_a`.
+Ithaka OS has no root and no Magisk since the 2026-11-03 `user` build. For the record: on the 2026-10-14 `userdebug` build, after the unmodified ROM booted, official Magisk **30.7 (30700)** was installed. Following [Magisk's documentation](https://topjohnwu.github.io/Magisk/install.html), the exact ROM's `init_boot.img` was patched **on the same phone**, preserving verity and encryption, and flashed to the confirmed current partition `init_boot_a`.
 
 The root daemon ran as root. A temporarily authorized Shell request returned `uid=0(root)` with Magisk's SELinux context. Shell permission was then revoked and a repeat request returned `Permission denied`, as requested by the owner. The test used `/debug_ramdisk/su`; plain `su` was not on the shell PATH. Patched images remain local and are not distributed for other devices. A further reboot completed successfully with Magisk active.
 
