@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: Apache-2.0
-# Publish site/ to the gh-pages branch (https://yzue1980.github.io/Ithaka-OS/).
+# Publish site/ to the gh-pages branch (https://uenkerlabs.github.io/Ithaka-OS/).
 # Screenshots in site/assets/screens/ are listed by site/screens.txt
 # ("file|title|caption" per line) and inserted at <!-- SCREENS -->; without
 # screenshots the section is left out.
@@ -45,7 +45,10 @@ PY
 [[ "${1:-}" == --dry-run ]] && { echo "Built in $site (dry run)"; exit 0; }
 git -C "$site" init -q -b gh-pages
 git -C "$site" add -A
-git -C "$site" -c user.name=YZUe1980 -c user.email=YZUe1980@users.noreply.github.com \
+# Require a deliberately chosen public commit author; never guess a private e-mail.
+: "${ITHAKA_PUBLISH_NAME:?Set ITHAKA_PUBLISH_NAME to the approved public author name}"
+: "${ITHAKA_PUBLISH_EMAIL:?Set ITHAKA_PUBLISH_EMAIL to the approved public author e-mail}"
+git -C "$site" -c user.name="$ITHAKA_PUBLISH_NAME" -c user.email="$ITHAKA_PUBLISH_EMAIL" \
     commit -q -m "Publish site $(date -u +%F)"
 git -C "$site" push -q --force "$(git -C "$repo_root" remote get-url origin)" gh-pages
 echo 'Published to gh-pages.'

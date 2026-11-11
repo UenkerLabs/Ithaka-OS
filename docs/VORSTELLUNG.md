@@ -4,7 +4,7 @@
 
 Die Idee ist einfach: Wir wollen selbst entscheiden, welche Dienste und Apps auf unserem Handy laufen. Dazu veröffentlichen wir nicht nur irgendwann eine Datei zum Herunterladen, sondern schon jetzt den Weg dorthin: Quellenstände, Build-Konfiguration, Skripte und die tatsächlichen Testergebnisse.
 
-Ithaka OS läuft auf dem Nothing Phone (3a) Pro mit Android 16 und Kernel 6.6. Installation, Verschlüsselung, Telefonie mit VoLTE, Verbindungen, Kameras, microG und die App-Stores sind geprüft; nur Glyph funktioniert noch nicht. Als Nächstes kommen Updates direkt über den eingebauten Updater und eine Ausrichtung auf Infomaniak: Kontakte, Kalender, Mail, Dateien und Backup aus einer Hand.
+Ithaka OS läuft auf dem Nothing Phone (3a) Pro mit Android 16 und Kernel 6.6. Installation, Verschlüsselung, VoLTE, Verbindungen und Kameras wurden auf einem Nothing Phone (3a) Pro A059P geprüft. **Glyph funktioniert seit dem dokumentierten Build vom 03.11.2026.** microG ist vorhanden; bei Play-Integrity-abhängigen Anwendungen (beispielsweise der früheren Claude-Anmeldung) bestanden am 04.11.2026 Einschränkungen. Ein Entwicklungskanal im integrierten Updater ist dokumentiert, aber ein reguläres OTA-Update und ein öffentlicher Endnutzer-Release sind nicht vollständig abgenommen. Infomaniak-Apps sind im Build vorhanden; kDrive-Backup benötigt weitere Tests.
 
 Auch „ohne Google“ verwenden wir präzise: keine vorinstallierten proprietären Google Play-Dienste und Google-Apps. Optionale microG-Funktionen können Google-Dienste nutzen. Aurora Store für Google-Play-Apps ist nicht vorinstalliert, lässt sich aber aus F-Droid nachinstallieren. Die benötigte proprietäre Gerätefirmware wird durch ein offenes Build-Rezept ebenfalls nicht automatisch Open Source.
 
@@ -12,4 +12,4 @@ Ithaka OS baut auf der Arbeit von LineageOS, NullDebris, LineageOS for microG un
 
 Wer Android-Gerätequellen kennt, sauber testen kann oder die Dokumentation verbessern möchte, ist eingeladen mitzumachen. Wir sammeln alles direkt auf GitHub.
 
-**[Ithaka OS ansehen und mitmachen](https://github.com/YZUe1980/ithaka-os)**
+**[Ithaka OS ansehen und mitmachen](https://github.com/UenkerLabs/Ithaka-OS)**

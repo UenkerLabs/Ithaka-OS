@@ -10,7 +10,7 @@ Initial status: **2026-10-14**; last updated **2026-11-03**. This page is update
 | Original-firmware preparation | All 38 extracted original images passed their published SHA-256 checks locally |
 | First ROM compilation | Completed successfully: 170,777 build steps, container exit 0; output checksums verified |
 | Wrapper checks | Bash syntax, pinned/tracking dry runs and tracked-file/manifest checks passed; full fresh build not yet tested |
-| GitHub Actions | [First hosted validation passed](https://github.com/YZUe1980/ithaka-os/actions/runs/38529313542); standard Ubuntu runner |
+| GitHub Actions | [First hosted validation passed](https://github.com/UenkerLabs/Ithaka-OS/actions/runs/38529313542); standard Ubuntu runner |
 | Clean installation | Full super image and eight slot-A boot-chain images written; data/metadata formatted. Booted successfully; setup completed |
 | First boot and encryption | Android 16 / SDK 36 boot completed; file encryption active; SELinux Enforcing |
 | SIM / eSIM | eSIM detected and active (2026-11-03) |
@@ -23,7 +23,7 @@ Initial status: **2026-10-14**; last updated **2026-11-03**. This page is update
 | microG self-check / Aurora / F-Droid | microG self-check all green; Aurora Store sign-in and app installs work; F-Droid repository update and installs work (2026-11-03) |
 | Root | None since the 2026-11-03 `user` build: no root, no Magisk. (Magisk 30.7 root had been verified on the 2026-10-14 `userdebug` build.) |
 | Network-default adjustments | On the 2026-10-14 build set by hand (GrapheneOS connectivity check, pool.ntp.org). After the update these manual settings were removed, so the build defaults apply: Android's connectivity check, PTB time servers, LineageOS statistics off (2026-11-03) |
-| Device validation | All checks pass on the A059P except Glyph (2026-11-03) |
+| Device validation | 2026-11-03: reported functional checks on the A059P including Glyph; earlier Glyph failure applied to the 2026-10-14 build. Later microG / Play Integrity and regular OTA-update checks remain limited as separately documented below. |
 | Update to the 2026-11-03 build | Installed over the 2026-10-14 build with the Updater's local-update import (A/B, now slot B); data kept. Ithaka OS boot animation, `user` build, SELinux Enforcing, Ithaka overlays active, kSync/Infomaniak Mail/kDrive present, Aurora Store and Twelve gone (2026-11-03) |
 | eSIM after the update | No SIM detected after the first boot from slot B: the device's eSIM switch was off and the profile disabled. Turning on Settings → Network & internet → eSIM settings → eSIM and then enabling the profile under SIMs restored service (2026-11-03) |
 | Network on the 2026-11-03 build | In service on LTE, mobile data works, IMS/VoLTE registered over LTE; network time synced from `ptbtime1.ptb.de`. A real call and SMS were not placed during this check (2026-11-03) |

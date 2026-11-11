@@ -2,18 +2,16 @@
 
 State of 2026-11-03, after the second build. The handoff of the same morning (rename, first OTA build, publication) is done; see [BUILD-RECORD-2026-11-03.md](BUILD-RECORD-2026-11-03.md), [STATUS.md](STATUS.md) and [ROADMAP.md](ROADMAP.md).
 
-## Renamed to Ithaka OS (2026-11-04)
+## Current GitHub identity and historical naming (verified 2026-11-11)
 
-The project was called Tangelo OS until 2026-11-04; "TANGELO" is a registered software trademark of another company. Repository content, overlays, boot animation and website already use Ithaka OS and `github.com/YZUe1980/ithaka-os`. Still to do on GitHub and SourceForge:
+Ithaka OS replaced the historical Tangelo OS project name on 2026-11-04. The GitHub repository **already exists** at `UenkerLabs/Ithaka-OS`; **do not run the obsolete repository-rename command** from earlier versions of this guide. The old command remains recoverable in Git history.
 
-```bash
-gh repo rename ithaka-os -R YZUe1980/tangelo-os --yes
-gh repo edit YZUe1980/ithaka-os --description "Ithaka OS: a personal Android 16 system for the Nothing Phone (3a) Pro, based on LineageOS 23.2 with microG, F-Droid and Infomaniak. Open build recipes and documented device tests." --add-topic ithaka-os --remove-topic tangelo-os
-git remote set-url origin https://github.com/YZUe1980/ithaka-os.git
-./scripts/publish-site.sh
-```
-
-and the SourceForge display name "Ithaka OS". Builds up to 2026-11-04 still look for updates at the old `tangelo-os` address; the test phone returns to Nothing OS on 2026-11-04 anyway.
+- Current source: https://github.com/UenkerLabs/Ithaka-OS
+- Current expected GitHub Pages URL: https://uenkerlabs.github.io/Ithaka-OS/ (live Pages hostname requires independent HTTPS verification)
+- Repository topic `tangelo-os` was still listed in GitHub settings at audit time and should be removed manually; the GitHub connection available to this audit does not support updating topics.
+- SourceForge project/user names are a **separate external identity**; do not change `SF_USER`, existing upload paths or OTA download URLs based on GitHub renaming alone.
+- For future builds, the pinned-manifest Git remote and sample OTA URL use the current GitHub owner. Existing installed builds may still reference the former OTA URL and require a separate migration test.
+- The public site deployment script requires an explicitly approved public Git author name/e-mail; it does not reuse a private or old address.
 
 ## Facts for every build
 

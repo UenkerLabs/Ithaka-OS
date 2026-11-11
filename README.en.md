@@ -1,12 +1,14 @@
+> **Identity and release status (2026-11-11):** The current GitHub owner is `UenkerLabs`. The latest documented build remains dated 2026-11-04. This is not a claim of a new ROM release or full device acceptance; GitHub Pages reachability needs separate verification.
+
 <p align="center"><img src="docs/banner.svg" alt="Ithaka OS for the Nothing Phone (3a) Pro. Built in the open." /></p>
 
 # Ithaka OS
 
-[![Project validation](https://github.com/YZUe1980/ithaka-os/actions/workflows/validate.yml/badge.svg)](https://github.com/YZUe1980/ithaka-os/actions/workflows/validate.yml)
+[![Project validation](https://github.com/UenkerLabs/Ithaka-OS/actions/workflows/validate.yml/badge.svg)](https://github.com/UenkerLabs/Ithaka-OS/actions/workflows/validate.yml)
 
 **Your phone. Your apps. Your choice.**
 
-[Website](https://yzue1980.github.io/Ithaka-OS/) · [Deutsch](README.md) · [Build guide](docs/BUILD.md) · [Device status](docs/STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Contribute](CONTRIBUTING.md)
+[Website](https://uenkerlabs.github.io/Ithaka-OS/) · [Deutsch](README.md) · [Build guide](docs/BUILD.md) · [Device status](docs/STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Contribute](CONTRIBUTING.md)
 
 **Ithaka OS** is an unofficial Android 16 system for the **Nothing Phone (3a) Pro**. It is based on **LineageOS 23.2** and ships **microG** and **F-Droid** without preinstalled Google services. **Infomaniak** is the central service: kSync for contacts and calendars, Infomaniak Mail and kDrive are preinstalled; backup to kDrive is still being tested. We publish the build recipe, source revisions and test results so others can inspect the work and help improve it.
 
@@ -40,7 +42,7 @@ Build, installation, the kernel 6.1 → 6.6 transition and boot have passed on t
 ## Build it
 
 ```bash
-git clone https://github.com/YZUe1980/ithaka-os.git
+git clone https://github.com/UenkerLabs/Ithaka-OS.git
 cd ithaka-os
 ./scripts/build.sh --dry-run
 ./scripts/build.sh

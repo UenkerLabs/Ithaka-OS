@@ -1,12 +1,14 @@
+> **Identität und Veröffentlichungsstand (11.11.2026):** GitHub-Owner ist `UenkerLabs`. Diese Dokumentation betrifft den zuletzt belegten Build vom 04.11.2026 und ist keine Zusage einer neueren ROM-Version oder einer vollständig abgenommenen Installation. Die öffentliche Website erhält die neue GitHub-Pages-Adresse; ihre Erreichbarkeit wird separat geprüft.
+
 <p align="center"><img src="docs/banner.svg" alt="Ithaka OS für das Nothing Phone (3a) Pro. Offen entwickelt." /></p>
 
 # Ithaka OS
 
-[![Projektprüfung](https://github.com/YZUe1980/ithaka-os/actions/workflows/validate.yml/badge.svg)](https://github.com/YZUe1980/ithaka-os/actions/workflows/validate.yml)
+[![Projektprüfung](https://github.com/UenkerLabs/Ithaka-OS/actions/workflows/validate.yml/badge.svg)](https://github.com/UenkerLabs/Ithaka-OS/actions/workflows/validate.yml)
 
 **Dein Handy. Deine Apps. Deine Entscheidung.**
 
-[Website](https://yzue1980.github.io/Ithaka-OS/) · [English](README.en.md) · [Bauanleitung](docs/BUILD.md) · [Gerätestatus](docs/STATUS.md) · [Fahrplan](docs/ROADMAP.md) · [Nächste Schritte](docs/NEXT-STEPS.md) · [Mitmachen](CONTRIBUTING.md)
+[Website](https://uenkerlabs.github.io/Ithaka-OS/) · [English](README.en.md) · [Bauanleitung](docs/BUILD.md) · [Gerätestatus](docs/STATUS.md) · [Fahrplan](docs/ROADMAP.md) · [Nächste Schritte](docs/NEXT-STEPS.md) · [Mitmachen](CONTRIBUTING.md)
 
 **Ithaka OS** ist ein inoffizielles Android-16-System für das **Nothing Phone (3a) Pro**. Es basiert auf **LineageOS 23.2** und bringt **microG und F-Droid** mit, ohne vorinstallierte Google-Dienste. **Infomaniak** ist der zentrale Dienst: kSync für Kontakte und Kalender, Infomaniak Mail und kDrive sind vorinstalliert; Backups aufs kDrive werden noch getestet. Build-Konfiguration, Quellenstände und Testergebnisse sind öffentlich, damit andere die Arbeit nachvollziehen und verbessern können.
 

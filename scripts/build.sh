@@ -59,7 +59,7 @@ if [[ "$mode" == pinned ]]; then
     if [[ ! -d "$root/src/LINEAGE_23_2/.repo" ]]; then
         run docker run --rm --entrypoint /bin/bash \
             --volume "$root/src:/srv/src" --env "SNAPSHOT_SHA256=$snapshot_hash" --env "SNAPSHOT=$snapshot" "$image" -c \
-            'set -e; mkdir -p /srv/src/LINEAGE_23_2; cd /srv/src/LINEAGE_23_2; repo init -u https://github.com/YZUe1980/ithaka-os.git -b main -m "$SNAPSHOT" -g default,-darwin --git-lfs; printf "%s\n" "$SNAPSHOT_SHA256" > .asteroids-pinned-manifest'
+            'set -e; mkdir -p /srv/src/LINEAGE_23_2; cd /srv/src/LINEAGE_23_2; repo init -u https://github.com/UenkerLabs/Ithaka-OS.git -b main -m "$SNAPSHOT" -g default,-darwin --git-lfs; printf "%s\n" "$SNAPSHOT_SHA256" > .asteroids-pinned-manifest'
     elif ! "$dry_run"; then
         [[ -f "$marker" && $(cat "$marker") == "$snapshot_hash" ]] || {
             echo 'Existing sources do not match the recorded pinned checkout. Use a fresh BUILD_ROOT.' >&2
