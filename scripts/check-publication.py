@@ -37,6 +37,26 @@ for p in (root / 'manifests').rglob('*.xml'):
     for remote in tree.findall('remote'):
         if not remote.get('fetch', '').startswith('https://'):
             errors.append(f'Unexpected remote: {remote.attrib}')
+# Active public entry points may not link to the former GitHub account.
+# Historical migration notes are deliberately excluded from this check.
+public_entrypoints = (
+    'README.md',
+    'README.en.md',
+    'site/index.html',
+    'docs/VORSTELLUNG.md',
+    'scripts/build.sh',
+    'scripts/publish-site.sh',
+    'config/build.env.example',
+)
+obsolete_owner = re.compile(r'(?:github\\.com/YZUe1980(?:/|\\b)|yzue1980\\.github\\.io)', re.IGNORECASE)
+for name in public_entrypoints:
+    page = root / name
+    if not page.is_file():
+        errors.append(f'Missing public entry point: {name}')
+        continue
+    if obsolete_owner.search(page.read_text(encoding='utf-8')):
+        errors.append(f'Former GitHub identity in active publication: {name}')
+
 if errors:
     raise SystemExit('\n'.join(errors))
 print(f'Publication checks passed for {len(list(filter(None, paths)))} tracked files.')
