@@ -48,7 +48,7 @@ public_entrypoints = (
     'scripts/publish-site.sh',
     'config/build.env.example',
 )
-obsolete_owner = re.compile(r'(?:github\\.com/YZUe1980(?:/|\\b)|yzue1980\\.github\\.io)', re.IGNORECASE)
+obsolete_owner = re.compile(r'(?:github\.com/YZUe1980(?:/|\b)|yzue1980\.github\.io)', re.IGNORECASE)
 for name in public_entrypoints:
     page = root / name
     if not page.is_file():
